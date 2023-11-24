@@ -55,6 +55,14 @@ Options:
       --no-build-runner
           Skip running build_runner even when codegen-required code is detected
 
+      --no-use-bridge-in-method
+          No use bridge in Model
+
+      --extra-headers <EXTRA_HEADERS>
+          extra_headers is used to add dependencies header
+          
+          Note that when no_use_bridge_in_method=true and extra_headers is not set, the default is `import 'ffi.io.dart' if (dart.library.html) 'ffi.web.dart'`.
+
   -v, --verbose
           Show debug messages
 
@@ -71,6 +79,12 @@ Options:
           A list of data to be dumped. If specified without a value, defaults to all
           
           [possible values: config, ir]
+
+      --no-dart3
+          Disable language features introduced in Dart 3
+
+      --keep-going
+          If set, the program will delay error reporting until all codegen operations have completed
 
   -h, --help
           Print help (see a summary with '-h')

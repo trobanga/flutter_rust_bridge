@@ -1,17 +1,17 @@
 <!DOCTYPE HTML>
-<html lang="en" class="sidebar-visible no-js light">
+<html lang="en" class="light" dir="ltr">
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
         <title>flutter_rust_bridge</title>
-        <meta name="robots" content="noindex" />
+        <meta name="robots" content="noindex">
 
 
         <!-- Custom HTML head -->
         
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="theme-color" content="#ffffff" />
+        <meta name="theme-color" content="#ffffff">
 
         <link rel="icon" href="favicon.svg">
         <link rel="shortcut icon" href="favicon.png">
@@ -32,7 +32,7 @@
         <!-- Custom theme stylesheets -->
 
     </head>
-    <body>
+    <body class="sidebar-visible no-js">
     <div id="body-container">
         <!-- Provide site root to javascript -->
         <script>
@@ -62,42 +62,69 @@
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
             var html = document.querySelector('html');
-            html.classList.remove('no-js')
             html.classList.remove('light')
             html.classList.add(theme);
-            html.classList.add('js');
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
         </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
 
         <!-- Hide / unhide sidebar before it is displayed -->
         <script>
-            var html = document.querySelector('html');
+            var body = document.querySelector('body');
             var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
             if (document.body.clientWidth >= 1080) {
                 try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
                 sidebar = sidebar || 'visible';
             } else {
                 sidebar = 'hidden';
             }
-            html.classList.remove('sidebar-visible');
-            html.classList.add("sidebar-" + sidebar);
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Introduction</a></li><li class="chapter-item expanded affix "><li class="part-title">Part I: Core</li><li class="chapter-item expanded "><a href="quickstart.html"><strong aria-hidden="true">1.</strong> 🧭 Quickstart</a></li><li class="chapter-item expanded "><a href="tutorial_with_flutter.html"><strong aria-hidden="true">2.</strong> 📚 Tutorial: A Flutter+Rust app</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="tutorial/setup_android.html"><strong aria-hidden="true">2.1.</strong> Android setup</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="tutorial/alternative_ndk.html"><strong aria-hidden="true">2.1.1.</strong> Alternative NDK setup</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="feature.html"><strong aria-hidden="true">3.</strong> 🎼 Features</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="feature/lang.html"><strong aria-hidden="true">3.1.</strong> Language translations</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="feature/lang_simple.html"><strong aria-hidden="true">3.1.1.</strong> Simple correspondence</a></li><li class="chapter-item expanded "><a href="feature/lang_vec.html"><strong aria-hidden="true">3.1.2.</strong> Vec and array</a></li><li class="chapter-item expanded "><a href="feature/lang_struct.html"><strong aria-hidden="true">3.1.3.</strong> Struct</a></li><li class="chapter-item expanded "><a href="feature/lang_enum.html"><strong aria-hidden="true">3.1.4.</strong> Enum</a></li><li class="chapter-item expanded "><a href="feature/lang_external.html"><strong aria-hidden="true">3.1.5.</strong> External types</a></li><li class="chapter-item expanded "><a href="feature/lang_option.html"><strong aria-hidden="true">3.1.6.</strong> Option</a></li><li class="chapter-item expanded "><a href="feature/lang_methods.html"><strong aria-hidden="true">3.1.7.</strong> Methods</a></li><li class="chapter-item expanded "><a href="feature/lang_return_types.html"><strong aria-hidden="true">3.1.8.</strong> Return types</a></li><li class="chapter-item expanded "><a href="feature/lang_dynamic.html"><strong aria-hidden="true">3.1.9.</strong> Dynamic</a></li><li class="chapter-item expanded "><a href="feature/lang_rust_opaque.html"><strong aria-hidden="true">3.1.10.</strong> Arbitrary Rust types (opaque)</a></li><li class="chapter-item expanded "><a href="feature/lang_dart_opaque.html"><strong aria-hidden="true">3.1.11.</strong> Arbitrary Dart types (opaque)</a></li><li class="chapter-item expanded "><a href="feature/lang_type_alias.html"><strong aria-hidden="true">3.1.12.</strong> Type alias</a></li><li class="chapter-item expanded "><a href="feature/lang_exceptions.html"><strong aria-hidden="true">3.1.13.</strong> Exceptions</a></li><li class="chapter-item expanded "><a href="feature/lang_default.html"><strong aria-hidden="true">3.1.14.</strong> Parameter defaults</a></li></ol></li><li class="chapter-item expanded "><a href="feature/zero_copy.html"><strong aria-hidden="true">3.2.</strong> Zero copy</a></li><li class="chapter-item expanded "><a href="feature/stream.html"><strong aria-hidden="true">3.3.</strong> Stream / Iterator</a></li><li class="chapter-item expanded "><a href="feature/async_dart.html"><strong aria-hidden="true">3.4.</strong> Async in Dart</a></li><li class="chapter-item expanded "><a href="feature/sync_dart.html"><strong aria-hidden="true">3.5.</strong> Sync in Dart</a></li><li class="chapter-item expanded "><a href="feature/concurrency.html"><strong aria-hidden="true">3.6.</strong> Concurrency</a></li><li class="chapter-item expanded "><a href="feature/handler.html"><strong aria-hidden="true">3.7.</strong> Handler</a></li><li class="chapter-item expanded "><a href="feature/init.html"><strong aria-hidden="true">3.8.</strong> Initialization</a></li><li class="chapter-item expanded "><a href="feature/async_rust.html"><strong aria-hidden="true">3.9.</strong> Async in Rust</a></li><li class="chapter-item expanded "><a href="feature/multiple_files.html"><strong aria-hidden="true">3.10.</strong> Multiple files</a></li><li class="chapter-item expanded "><a href="feature/build_rs.html"><strong aria-hidden="true">3.11.</strong> Run in build.rs</a></li><li class="chapter-item expanded "><a href="feature/cancelable_task.html"><strong aria-hidden="true">3.12.</strong> Cancellable tasks</a></li><li class="chapter-item expanded "><a href="feature/object_pool.html"><strong aria-hidden="true">3.13.</strong> Object pools</a></li><li class="chapter-item expanded "><a href="feature/wasm.html"><strong aria-hidden="true">3.14.</strong> WASM</a></li><li class="chapter-item expanded "><a href="feature/misc.html"><strong aria-hidden="true">3.15.</strong> Miscellaneous</a></li><li class="chapter-item expanded "><a href="feature/logging.html"><strong aria-hidden="true">3.16.</strong> Logging</a></li><li class="chapter-item expanded "><a href="feature/stack_trace.html"><strong aria-hidden="true">3.17.</strong> Stack Traces</a></li><li class="chapter-item expanded "><a href="feature/worker_pool.html"><strong aria-hidden="true">3.18.</strong> Worker pool</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">Part II: User Guide</li><li class="chapter-item expanded "><a href="template.html"><strong aria-hidden="true">4.</strong> Create new projects from a template</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="template/setup.html"><strong aria-hidden="true">4.1.</strong> Creating a new project</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="template/setup_android.html"><strong aria-hidden="true">4.1.1.</strong> Android setup</a></li><li class="chapter-item expanded "><a href="template/setup_ios.html"><strong aria-hidden="true">4.1.2.</strong> iOS setup</a></li><li class="chapter-item expanded "><a href="template/setup_web.html"><strong aria-hidden="true">4.1.3.</strong> Web setup</a></li><li class="chapter-item expanded "><a href="template/setup_desktop.html"><strong aria-hidden="true">4.1.4.</strong> Windows and Linux</a></li><li class="chapter-item expanded "><a href="template/setup_others.html"><strong aria-hidden="true">4.1.5.</strong> Other platforms</a></li></ol></li><li class="chapter-item expanded "><a href="template/tour.html"><strong aria-hidden="true">4.2.</strong> Template tour</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="template/tour_api.html"><strong aria-hidden="true">4.2.1.</strong> native/src/api.rs</a></li><li class="chapter-item expanded "><a href="template/tour_gradle.html"><strong aria-hidden="true">4.2.2.</strong> android/app/build.gradle</a></li><li class="chapter-item expanded "><a href="template/tour_native_proj.html"><strong aria-hidden="true">4.2.3.</strong> native/native.xcodeproj</a></li><li class="chapter-item expanded "><a href="template/tour_justfile.html"><strong aria-hidden="true">4.2.4.</strong> justfile</a></li><li class="chapter-item expanded "><a href="template/tour_cmake.html"><strong aria-hidden="true">4.2.5.</strong> rust.cmake</a></li></ol></li><li class="chapter-item expanded "><a href="template/generate.html"><strong aria-hidden="true">4.3.</strong> Generating code</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="template/generate_install.html"><strong aria-hidden="true">4.3.1.</strong> Installing codegen</a></li><li class="chapter-item expanded "><a href="template/generate_adding_code.html"><strong aria-hidden="true">4.3.2.</strong> Adding new code</a></li><li class="chapter-item expanded "><a href="template/generate_build_runner.html"><strong aria-hidden="true">4.3.3.</strong> Using build_runner</a></li><li class="chapter-item expanded "><a href="template/generate_finish.html"><strong aria-hidden="true">4.3.4.</strong> Wrapping up</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="integrate.html"><strong aria-hidden="true">5.</strong> Integrating with existing projects</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="integrate/new_crate.html"><strong aria-hidden="true">5.1.</strong> Creating a new crate</a></li><li class="chapter-item expanded "><a href="integrate/deps.html"><strong aria-hidden="true">5.2.</strong> Installing dependencies</a></li><li class="chapter-item expanded "><a href="integrate/android.html"><strong aria-hidden="true">5.3.</strong> Integrating with Android</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="integrate/android_tasks.html"><strong aria-hidden="true">5.3.1.</strong> Hooking onto tasks</a></li><li class="chapter-item expanded "><a href="integrate/android_cmake.html"><strong aria-hidden="true">5.3.2.</strong> CMake with Gradle</a></li></ol></li><li class="chapter-item expanded "><a href="integrate/ios.html"><strong aria-hidden="true">5.4.</strong> Integrating with iOS/MacOS</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="integrate/ios_proj.html"><strong aria-hidden="true">5.4.1.</strong> Creating the Rust project</a></li><li class="chapter-item expanded "><a href="integrate/ios_linking.html"><strong aria-hidden="true">5.4.2.</strong> Linking the project</a></li><li class="chapter-item expanded "><a href="integrate/ios_gen.html"><strong aria-hidden="true">5.4.3.</strong> Generating bindings</a></li><li class="chapter-item expanded "><a href="integrate/ios_headers.html"><strong aria-hidden="true">5.4.4.</strong> Using dummy headers</a></li></ol></li><li class="chapter-item expanded "><a href="integrate/desktop.html"><strong aria-hidden="true">5.5.</strong> Integrating with Windows and Linux</a></li><li class="chapter-item expanded "><a href="integrate/web.html"><strong aria-hidden="true">5.6.</strong> Integrating with Web</a></li><li class="chapter-item expanded "><a href="integrate/usage.html"><strong aria-hidden="true">5.7.</strong> Using the dynamic library</a></li><li class="chapter-item expanded "><a href="integrate/finish.html"><strong aria-hidden="true">5.8.</strong> Wrapping up</a></li></ol></li><li class="chapter-item expanded "><a href="library.html"><strong aria-hidden="true">6.</strong> Creating a Dart/Flutter library</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="library/overview.html"><strong aria-hidden="true">6.1.</strong> Overview</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="library/setup.html"><strong aria-hidden="true">6.1.1.</strong> Setup</a></li><li class="chapter-item expanded "><a href="library/melos.html"><strong aria-hidden="true">6.1.2.</strong> Monorepo with Melos</a></li></ol></li><li class="chapter-item expanded "><a href="library/creating_libraries.html"><strong aria-hidden="true">6.2.</strong> Creating the libraries</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="library/dart_only.html"><strong aria-hidden="true">6.2.1.</strong> Dart-only base</a></li><li class="chapter-item expanded "><a href="library/flutter_wrapper.html"><strong aria-hidden="true">6.2.2.</strong> Flutter wrapper</a></li></ol></li><li class="chapter-item expanded "><a href="library/platform_setup.html"><strong aria-hidden="true">6.3.</strong> Platform specific setup</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="library/platform_setup/windows_and_linux.html"><strong aria-hidden="true">6.3.1.</strong> Windows & Linux</a></li><li class="chapter-item expanded "><a href="library/platform_setup/ios_and_macos.html"><strong aria-hidden="true">6.3.2.</strong> iOS & macOS</a></li><li class="chapter-item expanded "><a href="library/platform_setup/android.html"><strong aria-hidden="true">6.3.3.</strong> Android</a></li></ol></li><li class="chapter-item expanded "><a href="library/ci.html"><strong aria-hidden="true">6.4.</strong> Continuous Integration & Deployment (CI/CD)</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">Part III: Contributor Guide</li><li class="chapter-item expanded "><a href="contributing/overview.html"><strong aria-hidden="true">7.</strong> Overview</a></li><li class="chapter-item expanded "><a href="contributing/design.html"><strong aria-hidden="true">8.</strong> Overall design</a></li><li class="chapter-item expanded "><a href="contributing/submodule.html"><strong aria-hidden="true">9.</strong> Submodule implementations</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="contributing/rust_opaque_type_safety.html"><strong aria-hidden="true">9.1.</strong> Rust opaque type safety</a></li><li class="chapter-item expanded "><a href="contributing/dart_opaque_type_safety.html"><strong aria-hidden="true">9.2.</strong> Dart opaque type safety</a></li></ol></li><li class="chapter-item expanded "><a href="contributing/appendix.html"><strong aria-hidden="true">10.</strong> Appendix</a></li><li class="chapter-item expanded affix "><li class="part-title">Part IV: More Doc</li><li class="chapter-item expanded "><a href="unit_tests_dart.html"><strong aria-hidden="true">11.</strong> Unit testing in Flutter</a></li><li class="chapter-item expanded "><a href="tutorial_pure_dart.html"><strong aria-hidden="true">12.</strong> Tutorial: Pure Dart</a></li><li class="chapter-item expanded "><a href="safety.html"><strong aria-hidden="true">13.</strong> Safety concerns</a></li><li class="chapter-item expanded "><a href="troubleshooting.html"><strong aria-hidden="true">14.</strong> Troubleshooting</a></li><li class="chapter-item expanded "><a href="command_line.html"><strong aria-hidden="true">15.</strong> Command line arguments</a></li><li class="chapter-item expanded "><a href="set_up_from_scratch.html"><strong aria-hidden="true">16.</strong> Set up Flutter/Dart+Rust support from scratch</a></li><li class="chapter-item expanded "><a href="build_wasm.html"><strong aria-hidden="true">17.</strong> Building a WASM binary manually</a></li><li class="chapter-item expanded "><a href="wasm_limitations.html"><strong aria-hidden="true">18.</strong> Limitations of WASM</a></li><li class="chapter-item expanded "><a href="article.html"><strong aria-hidden="true">19.</strong> Articles</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="article/async_in_rust.html"><strong aria-hidden="true">19.1.</strong> Async in Rust</a></li><li class="chapter-item expanded "><a href="article/generate_multiple_files.html"><strong aria-hidden="true">19.2.</strong> Generate multiple files</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Introduction</a></li><li class="chapter-item expanded affix "><li class="part-title">Part I: Core</li><li class="chapter-item expanded "><a href="quickstart.html"><strong aria-hidden="true">1.</strong> 🧭 Quickstart</a></li><li class="chapter-item expanded "><a href="tutorial_with_flutter.html"><strong aria-hidden="true">2.</strong> 📚 Tutorial: A Flutter+Rust app</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="tutorial/setup_android.html"><strong aria-hidden="true">2.1.</strong> Android setup</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="tutorial/alternative_ndk.html"><strong aria-hidden="true">2.1.1.</strong> Alternative NDK setup</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="feature.html"><strong aria-hidden="true">3.</strong> 🎼 Features</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="feature/lang.html"><strong aria-hidden="true">3.1.</strong> Language translations</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="feature/lang_simple.html"><strong aria-hidden="true">3.1.1.</strong> Simple correspondence</a></li><li class="chapter-item expanded "><a href="feature/lang_vec.html"><strong aria-hidden="true">3.1.2.</strong> Vec and array</a></li><li class="chapter-item expanded "><a href="feature/lang_struct.html"><strong aria-hidden="true">3.1.3.</strong> Struct</a></li><li class="chapter-item expanded "><a href="feature/lang_enum.html"><strong aria-hidden="true">3.1.4.</strong> Enum</a></li><li class="chapter-item expanded "><a href="feature/lang_tuple.html"><strong aria-hidden="true">3.1.5.</strong> Tuples</a></li><li class="chapter-item expanded "><a href="feature/lang_external.html"><strong aria-hidden="true">3.1.6.</strong> External types</a></li><li class="chapter-item expanded "><a href="feature/lang_option.html"><strong aria-hidden="true">3.1.7.</strong> Option</a></li><li class="chapter-item expanded "><a href="feature/lang_methods.html"><strong aria-hidden="true">3.1.8.</strong> Methods</a></li><li class="chapter-item expanded "><a href="feature/lang_return_types.html"><strong aria-hidden="true">3.1.9.</strong> Return types</a></li><li class="chapter-item expanded "><a href="feature/lang_dynamic.html"><strong aria-hidden="true">3.1.10.</strong> Dynamic</a></li><li class="chapter-item expanded "><a href="feature/lang_rust_opaque.html"><strong aria-hidden="true">3.1.11.</strong> Arbitrary Rust types (opaque)</a></li><li class="chapter-item expanded "><a href="feature/lang_dart_opaque.html"><strong aria-hidden="true">3.1.12.</strong> Arbitrary Dart types (opaque)</a></li><li class="chapter-item expanded "><a href="feature/lang_type_alias.html"><strong aria-hidden="true">3.1.13.</strong> Type alias</a></li><li class="chapter-item expanded "><a href="feature/lang_exceptions.html"><strong aria-hidden="true">3.1.14.</strong> Result / Exceptions</a></li><li class="chapter-item expanded "><a href="feature/lang_default.html"><strong aria-hidden="true">3.1.15.</strong> Parameter defaults</a></li></ol></li><li class="chapter-item expanded "><a href="feature/zero_copy.html"><strong aria-hidden="true">3.2.</strong> Zero copy</a></li><li class="chapter-item expanded "><a href="feature/stream.html"><strong aria-hidden="true">3.3.</strong> Stream / Iterator</a></li><li class="chapter-item expanded "><a href="feature/async_dart.html"><strong aria-hidden="true">3.4.</strong> Async in Dart</a></li><li class="chapter-item expanded "><a href="feature/sync_dart.html"><strong aria-hidden="true">3.5.</strong> Sync in Dart</a></li><li class="chapter-item expanded "><a href="feature/concurrency.html"><strong aria-hidden="true">3.6.</strong> Concurrency</a></li><li class="chapter-item expanded "><a href="feature/handler.html"><strong aria-hidden="true">3.7.</strong> Handler</a></li><li class="chapter-item expanded "><a href="feature/init.html"><strong aria-hidden="true">3.8.</strong> Initialization</a></li><li class="chapter-item expanded "><a href="feature/async_rust.html"><strong aria-hidden="true">3.9.</strong> Async in Rust</a></li><li class="chapter-item expanded "><a href="feature/multiple_files.html"><strong aria-hidden="true">3.10.</strong> Multiple files</a></li><li class="chapter-item expanded "><a href="feature/build_rs.html"><strong aria-hidden="true">3.11.</strong> Run in build.rs</a></li><li class="chapter-item expanded "><a href="feature/cancelable_task.html"><strong aria-hidden="true">3.12.</strong> Cancellable tasks</a></li><li class="chapter-item expanded "><a href="feature/object_pool.html"><strong aria-hidden="true">3.13.</strong> Object pools</a></li><li class="chapter-item expanded "><a href="feature/wasm.html"><strong aria-hidden="true">3.14.</strong> WASM</a></li><li class="chapter-item expanded "><a href="feature/misc.html"><strong aria-hidden="true">3.15.</strong> Miscellaneous</a></li><li class="chapter-item expanded "><a href="feature/logging.html"><strong aria-hidden="true">3.16.</strong> Logging</a></li><li class="chapter-item expanded "><a href="feature/stack_trace.html"><strong aria-hidden="true">3.17.</strong> Stack Traces</a></li><li class="chapter-item expanded "><a href="feature/worker_pool.html"><strong aria-hidden="true">3.18.</strong> Worker pool</a></li><li class="chapter-item expanded "><a href="feature/expanding_macros.html"><strong aria-hidden="true">3.19.</strong> Expanding macros</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">Part II: User Guide</li><li class="chapter-item expanded "><a href="template.html"><strong aria-hidden="true">4.</strong> Create new projects from a template</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="template/setup.html"><strong aria-hidden="true">4.1.</strong> Creating a new project</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="template/setup_android.html"><strong aria-hidden="true">4.1.1.</strong> Android setup</a></li><li class="chapter-item expanded "><a href="template/setup_ios.html"><strong aria-hidden="true">4.1.2.</strong> iOS setup</a></li><li class="chapter-item expanded "><a href="template/setup_web.html"><strong aria-hidden="true">4.1.3.</strong> Web setup</a></li><li class="chapter-item expanded "><a href="template/setup_desktop.html"><strong aria-hidden="true">4.1.4.</strong> Windows and Linux</a></li><li class="chapter-item expanded "><a href="template/setup_others.html"><strong aria-hidden="true">4.1.5.</strong> Other platforms</a></li></ol></li><li class="chapter-item expanded "><a href="template/tour.html"><strong aria-hidden="true">4.2.</strong> Template tour</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="template/tour_api.html"><strong aria-hidden="true">4.2.1.</strong> native/src/api.rs</a></li><li class="chapter-item expanded "><a href="template/tour_gradle.html"><strong aria-hidden="true">4.2.2.</strong> android/app/build.gradle</a></li><li class="chapter-item expanded "><a href="template/tour_native_proj.html"><strong aria-hidden="true">4.2.3.</strong> native/native.xcodeproj</a></li><li class="chapter-item expanded "><a href="template/tour_justfile.html"><strong aria-hidden="true">4.2.4.</strong> justfile</a></li><li class="chapter-item expanded "><a href="template/tour_cmake.html"><strong aria-hidden="true">4.2.5.</strong> rust.cmake</a></li></ol></li><li class="chapter-item expanded "><a href="template/generate.html"><strong aria-hidden="true">4.3.</strong> Generating code</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="template/generate_install.html"><strong aria-hidden="true">4.3.1.</strong> Installing codegen</a></li><li class="chapter-item expanded "><a href="template/generate_adding_code.html"><strong aria-hidden="true">4.3.2.</strong> Adding new code</a></li><li class="chapter-item expanded "><a href="template/generate_build_runner.html"><strong aria-hidden="true">4.3.3.</strong> Using build_runner</a></li><li class="chapter-item expanded "><a href="template/generate_finish.html"><strong aria-hidden="true">4.3.4.</strong> Wrapping up</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="integrate.html"><strong aria-hidden="true">5.</strong> Integrating with existing projects</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="integrate/new_crate.html"><strong aria-hidden="true">5.1.</strong> Creating a new crate</a></li><li class="chapter-item expanded "><a href="integrate/deps.html"><strong aria-hidden="true">5.2.</strong> Installing dependencies</a></li><li class="chapter-item expanded "><a href="integrate/android.html"><strong aria-hidden="true">5.3.</strong> Integrating with Android</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="integrate/android_tasks.html"><strong aria-hidden="true">5.3.1.</strong> Hooking onto tasks</a></li><li class="chapter-item expanded "><a href="integrate/android_cmake.html"><strong aria-hidden="true">5.3.2.</strong> CMake with Gradle</a></li></ol></li><li class="chapter-item expanded "><a href="integrate/ios.html"><strong aria-hidden="true">5.4.</strong> Integrating with iOS/MacOS</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="integrate/ios_proj.html"><strong aria-hidden="true">5.4.1.</strong> Creating the Rust project</a></li><li class="chapter-item expanded "><a href="integrate/ios_linking.html"><strong aria-hidden="true">5.4.2.</strong> Linking the project</a></li><li class="chapter-item expanded "><a href="integrate/ios_gen.html"><strong aria-hidden="true">5.4.3.</strong> Generating bindings</a></li><li class="chapter-item expanded "><a href="integrate/ios_headers.html"><strong aria-hidden="true">5.4.4.</strong> Using dummy headers</a></li></ol></li><li class="chapter-item expanded "><a href="integrate/desktop.html"><strong aria-hidden="true">5.5.</strong> Integrating with Windows and Linux</a></li><li class="chapter-item expanded "><a href="integrate/web.html"><strong aria-hidden="true">5.6.</strong> Integrating with Web</a></li><li class="chapter-item expanded "><a href="integrate/usage.html"><strong aria-hidden="true">5.7.</strong> Using the dynamic library</a></li><li class="chapter-item expanded "><a href="integrate/finish.html"><strong aria-hidden="true">5.8.</strong> Wrapping up</a></li></ol></li><li class="chapter-item expanded "><a href="library.html"><strong aria-hidden="true">6.</strong> Creating a Dart/Flutter library</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="library/overview.html"><strong aria-hidden="true">6.1.</strong> Overview</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="library/setup.html"><strong aria-hidden="true">6.1.1.</strong> Setup</a></li><li class="chapter-item expanded "><a href="library/melos.html"><strong aria-hidden="true">6.1.2.</strong> Monorepo with Melos</a></li></ol></li><li class="chapter-item expanded "><a href="library/creating_libraries.html"><strong aria-hidden="true">6.2.</strong> Creating the libraries</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="library/dart_only.html"><strong aria-hidden="true">6.2.1.</strong> Dart-only base</a></li><li class="chapter-item expanded "><a href="library/flutter_wrapper.html"><strong aria-hidden="true">6.2.2.</strong> Flutter wrapper</a></li></ol></li><li class="chapter-item expanded "><a href="library/platform_setup.html"><strong aria-hidden="true">6.3.</strong> Platform specific setup</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="library/platform_setup/windows_and_linux.html"><strong aria-hidden="true">6.3.1.</strong> Windows & Linux</a></li><li class="chapter-item expanded "><a href="library/platform_setup/ios_and_macos.html"><strong aria-hidden="true">6.3.2.</strong> iOS & macOS</a></li><li class="chapter-item expanded "><a href="library/platform_setup/android.html"><strong aria-hidden="true">6.3.3.</strong> Android</a></li></ol></li><li class="chapter-item expanded "><a href="library/ci.html"><strong aria-hidden="true">6.4.</strong> Continuous Integration & Deployment (CI/CD)</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">Part III: Contributor Guide</li><li class="chapter-item expanded "><a href="contributing/overview.html"><strong aria-hidden="true">7.</strong> Overview</a></li><li class="chapter-item expanded "><a href="contributing/design.html"><strong aria-hidden="true">8.</strong> Overall design</a></li><li class="chapter-item expanded "><a href="contributing/submodule.html"><strong aria-hidden="true">9.</strong> Submodule implementations</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="contributing/rust_opaque_type_safety.html"><strong aria-hidden="true">9.1.</strong> Rust opaque type safety</a></li><li class="chapter-item expanded "><a href="contributing/dart_opaque_type_safety.html"><strong aria-hidden="true">9.2.</strong> Dart opaque type safety</a></li></ol></li><li class="chapter-item expanded "><a href="contributing/appendix.html"><strong aria-hidden="true">10.</strong> Appendix</a></li><li class="chapter-item expanded affix "><li class="part-title">Part IV: More Doc</li><li class="chapter-item expanded "><a href="unit_tests_dart.html"><strong aria-hidden="true">11.</strong> Unit testing in Flutter</a></li><li class="chapter-item expanded "><a href="tutorial_pure_dart.html"><strong aria-hidden="true">12.</strong> Tutorial: Pure Dart</a></li><li class="chapter-item expanded "><a href="safety.html"><strong aria-hidden="true">13.</strong> Safety concerns</a></li><li class="chapter-item expanded "><a href="troubleshooting.html"><strong aria-hidden="true">14.</strong> Troubleshooting</a></li><li class="chapter-item expanded "><a href="command_line.html"><strong aria-hidden="true">15.</strong> Command line arguments</a></li><li class="chapter-item expanded "><a href="set_up_from_scratch.html"><strong aria-hidden="true">16.</strong> Set up Flutter/Dart+Rust support from scratch</a></li><li class="chapter-item expanded "><a href="build_wasm.html"><strong aria-hidden="true">17.</strong> Building a WASM binary manually</a></li><li class="chapter-item expanded "><a href="wasm_limitations.html"><strong aria-hidden="true">18.</strong> Limitations of WASM</a></li><li class="chapter-item expanded "><a href="article.html"><strong aria-hidden="true">19.</strong> Articles</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="article/async_in_rust.html"><strong aria-hidden="true">19.1.</strong> Async in Rust</a></li><li class="chapter-item expanded "><a href="article/generate_multiple_files.html"><strong aria-hidden="true">19.2.</strong> Generate multiple files</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
 
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
                                 <div id="menu-bar-hover-placeholder"></div>
-                <div id="menu-bar" class="menu-bar sticky bordered">
+                <div id="menu-bar" class="menu-bar sticky">
                     <div class="left-buttons">
-                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
                             <i class="fa fa-bars"></i>
-                        </button>
+                        </label>
                         <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
                             <i class="fa fa-paint-brush"></i>
                         </button>
@@ -150,8 +177,8 @@
 <a href="https://pub.dev/packages/flutter_rust_bridge"><img src="https://img.shields.io/pub/v/flutter_rust_bridge.svg" alt="Flutter Package" /></a>
 <a href="https://github.com/fzyzcjy/flutter_rust_bridge"><img src="https://img.shields.io/github/stars/fzyzcjy/flutter_rust_bridge" alt="Stars" /></a>
 <a href="https://github.com/fzyzcjy/flutter_rust_bridge/actions/workflows/ci.yaml"><img src="https://github.com/fzyzcjy/flutter_rust_bridge/actions/workflows/ci.yaml/badge.svg" alt="CI" /></a>
-<a href="https://github.com/fzyzcjy/flutter_rust_bridge/actions/workflows/post_release.yaml"><img src="https://github.com/fzyzcjy/flutter_rust_bridge/actions/workflows/post_release.yaml/badge.svg" alt="Example" /></a>
 <a href="https://app.codacy.com/gh/fzyzcjy/flutter_rust_bridge?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=fzyzcjy/flutter_rust_bridge&amp;utm_campaign=Badge_Grade_Settings"><img src="https://api.codacy.com/project/badge/Grade/6afbdad19e7245adbf9e9771777be3d7" alt="Codacy Badge" /></a></p>
+<p><a href="https://flutter.dev/docs/development/packages-and-plugins/favorites"><img src="https://github.com/fzyzcjy/flutter_rust_bridge/raw/master/book/flutter_favorite.png" width="200" /></a></p>
 <p><img src="https://github.com/fzyzcjy/flutter_rust_bridge/raw/master/book/logo.png" alt="Logo" /></p>
 <p>Want to combine the best between <a href="https://flutter.dev/">Flutter</a>, a cross-platform hot-reload rapid-development UI toolkit, and <a href="https://www.rust-lang.org/">Rust</a>, a language empowering everyone to build reliable and efficient software? Here it comes!</p>
 <h2 id="-advantages"><a class="header" href="#-advantages">🚀 Advantages</a></h2>
@@ -171,7 +198,7 @@
 <p>Here is my another open-source library :) https://github.com/fzyzcjy/flutter_smooth.</p>
 <h2 id="-contributors"><a class="header" href="#-contributors">✨ Contributors</a></h2>
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-<p><a href="index.html#contributors-"><img src="https://img.shields.io/badge/all_contributors-56-orange.svg?style=flat-square" alt="All Contributors" /></a></p>
+<p><a href="index.html#contributors-"><img src="https://img.shields.io/badge/all_contributors-75-orange.svg?style=flat-square" alt="All Contributors" /></a></p>
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 <p>Thanks goes to these wonderful people (<a href="https://allcontributors.org/docs/en/emoji-key">emoji key</a> following <a href="https://github.com/all-contributors/all-contributors">all-contributors</a> specification):</p>
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
@@ -217,7 +244,7 @@
     </tr>
     <tr>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/Cupnfish"><img src="https://avatars.githubusercontent.com/u/40173605?v=4?s=100" width="100px;" alt="Cupnfish"/><br /><sub><b>Cupnfish</b></sub></a><br /><a href="https://github.com/fzyzcjy/flutter_rust_bridge/commits?author=Cupnfish" title="Code">💻</a></td>
-      <td align="center" valign="top" width="14.28%"><a href="https://github.com/SoLongAndThanksForAllThePizza"><img src="https://avatars.githubusercontent.com/u/103753680?v=4?s=100" width="100px;" alt="SoLongAndThanksForAllThePizza"/><br /><sub><b>SoLongAndThanksForAllThePizza</b></sub></a><br /><a href="https://github.com/fzyzcjy/flutter_rust_bridge/commits?author=SoLongAndThanksForAllThePizza" title="Code">💻</a> <a href="https://github.com/fzyzcjy/flutter_rust_bridge/commits?author=SoLongAndThanksForAllThePizza" title="Documentation">📖</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/SoLongAndThanksForAllThePizza"><img src="https://avatars.githubusercontent.com/u/103753680?v=4?s=100" width="100px;" alt="SoLongAnd..."/><br /><sub><b>SoLongAnd...</b></sub></a><br /><a href="https://github.com/fzyzcjy/flutter_rust_bridge/commits?author=SoLongAndThanksForAllThePizza" title="Code">💻</a> <a href="https://github.com/fzyzcjy/flutter_rust_bridge/commits?author=SoLongAndThanksForAllThePizza" title="Documentation">📖</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/Stonks3141"><img src="https://avatars.githubusercontent.com/u/82178396?v=4?s=100" width="100px;" alt="Sam Nystrom"/><br /><sub><b>Sam Nystrom</b></sub></a><br /><a href="https://github.com/fzyzcjy/flutter_rust_bridge/commits?author=Stonks3141" title="Documentation">📖</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://i.hsfzxjy.site"><img src="https://avatars.githubusercontent.com/u/4702188?v=4?s=100" width="100px;" alt="hsfzxjy"/><br /><sub><b>hsfzxjy</b></sub></a><br /><a href="https://github.com/fzyzcjy/flutter_rust_bridge/commits?author=hsfzxjy" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://tmpfs.org"><img src="https://avatars.githubusercontent.com/u/238069?v=4?s=100" width="100px;" alt="muji"/><br /><sub><b>muji</b></sub></a><br /><a href="https://github.com/fzyzcjy/flutter_rust_bridge/commits?author=tmpfs" title="Documentation">📖</a></td>
@@ -249,7 +276,32 @@
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/polypixeldev"><img src="https://avatars.githubusercontent.com/u/79737178?v=4?s=100" width="100px;" alt="polypixeldev"/><br /><sub><b>polypixeldev</b></sub></a><br /><a href="https://github.com/fzyzcjy/flutter_rust_bridge/commits?author=polypixeldev" title="Documentation">📖</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/anstadnik"><img src="https://avatars.githubusercontent.com/u/40110937?v=4?s=100" width="100px;" alt="Andrii Stadnik"/><br /><sub><b>Andrii Stadnik</b></sub></a><br /><a href="https://github.com/fzyzcjy/flutter_rust_bridge/commits?author=anstadnik" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/coder0xff"><img src="https://avatars.githubusercontent.com/u/2261949?v=4?s=100" width="100px;" alt="Brent Lewis"/><br /><sub><b>Brent Lewis</b></sub></a><br /><a href="https://github.com/fzyzcjy/flutter_rust_bridge/commits?author=coder0xff" title="Code">💻</a> <a href="https://github.com/fzyzcjy/flutter_rust_bridge/commits?author=coder0xff" title="Documentation">📖</a></td>
-      <td align="center" valign="top" width="14.28%"><a href="https://github.com/erikas-taroza"><img src="https://avatars.githubusercontent.com/u/68450090?v=4?s=100" width="100px;" alt="TypicalEgg"/><br /><sub><b>TypicalEgg</b></sub></a><br /><a href="https://github.com/fzyzcjy/flutter_rust_bridge/commits?author=erikas-taroza" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/erikas-taroza"><img src="https://avatars.githubusercontent.com/u/68450090?v=4?s=100" width="100px;" alt="Erikas Taroza"/><br /><sub><b>Erikas Taroza</b></sub></a><br /><a href="https://github.com/fzyzcjy/flutter_rust_bridge/commits?author=erikas-taroza" title="Code">💻</a></td>
+    </tr>
+    <tr>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/escwxyz"><img src="https://avatars.githubusercontent.com/u/124119483?v=4?s=100" width="100px;" alt="J"/><br /><sub><b>J</b></sub></a><br /><a href="https://github.com/fzyzcjy/flutter_rust_bridge/commits?author=escwxyz" title="Documentation">📖</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://monitzer.com"><img src="https://avatars.githubusercontent.com/u/644763?v=4?s=100" width="100px;" alt="Andreas Monitzer"/><br /><sub><b>Andreas Monitzer</b></sub></a><br /><a href="https://github.com/fzyzcjy/flutter_rust_bridge/commits?author=anlumo" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://satvikpendem.com"><img src="https://avatars.githubusercontent.com/u/42670561?v=4?s=100" width="100px;" alt="Satvik Pendem"/><br /><sub><b>Satvik Pendem</b></sub></a><br /><a href="https://github.com/fzyzcjy/flutter_rust_bridge/commits?author=satvikpendem" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://phlip9.com"><img src="https://avatars.githubusercontent.com/u/918989?v=4?s=100" width="100px;" alt="Philip Kannegaard Hayes"/><br /><sub><b>Philip Kannegaard Hayes</b></sub></a><br /><a href="https://github.com/fzyzcjy/flutter_rust_bridge/commits?author=phlip9" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://thesimplekid.com"><img src="https://avatars.githubusercontent.com/u/8606367?v=4?s=100" width="100px;" alt="thesimplekid"/><br /><sub><b>thesimplekid</b></sub></a><br /><a href="https://github.com/fzyzcjy/flutter_rust_bridge/commits?author=thesimplekid" title="Documentation">📖</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/jaiakash"><img src="https://avatars.githubusercontent.com/u/33419526?v=4?s=100" width="100px;" alt="Akash Jaiswal"/><br /><sub><b>Akash Jaiswal</b></sub></a><br /><a href="https://github.com/fzyzcjy/flutter_rust_bridge/commits?author=jaiakash" title="Documentation">📖</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/MnlPhlp"><img src="https://avatars.githubusercontent.com/u/33608297?v=4?s=100" width="100px;" alt="Manuel Philipp"/><br /><sub><b>Manuel Philipp</b></sub></a><br /><a href="https://github.com/fzyzcjy/flutter_rust_bridge/commits?author=MnlPhlp" title="Code">💻</a> <a href="https://github.com/fzyzcjy/flutter_rust_bridge/commits?author=MnlPhlp" title="Documentation">📖</a></td>
+    </tr>
+    <tr>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/lker-dev"><img src="https://avatars.githubusercontent.com/u/40730443?v=4?s=100" width="100px;" alt="Jonathan"/><br /><sub><b>Jonathan</b></sub></a><br /><a href="https://github.com/fzyzcjy/flutter_rust_bridge/commits?author=lker-dev" title="Documentation">📖</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://lipoic.org"><img src="https://avatars.githubusercontent.com/u/48402225?v=4?s=100" width="100px;" alt="菘菘"/><br /><sub><b>菘菘</b></sub></a><br /><a href="https://github.com/fzyzcjy/flutter_rust_bridge/commits?author=SiongSng" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://gutenfries.deno.dev"><img src="https://avatars.githubusercontent.com/u/79616833?v=4?s=100" width="100px;" alt="Marc Gutenberger"/><br /><sub><b>Marc Gutenberger</b></sub></a><br /><a href="https://github.com/fzyzcjy/flutter_rust_bridge/commits?author=gutenfries" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/aran"><img src="https://avatars.githubusercontent.com/u/5295?v=4?s=100" width="100px;" alt="Aran Donohue"/><br /><sub><b>Aran Donohue</b></sub></a><br /><a href="https://github.com/fzyzcjy/flutter_rust_bridge/commits?author=aran" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/powpingdone"><img src="https://avatars.githubusercontent.com/u/20116021?v=4?s=100" width="100px;" alt="Aidan"/><br /><sub><b>Aidan</b></sub></a><br /><a href="https://github.com/fzyzcjy/flutter_rust_bridge/commits?author=powpingdone" title="Documentation">📖</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/vimaxwell"><img src="https://avatars.githubusercontent.com/u/19898639?v=4?s=100" width="100px;" alt="max"/><br /><sub><b>max</b></sub></a><br /><a href="https://github.com/fzyzcjy/flutter_rust_bridge/commits?author=vimaxwell" title="Documentation">📖</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/DMouayad"><img src="https://avatars.githubusercontent.com/u/82384138?v=4?s=100" width="100px;" alt="Mouayad Alhamwi"/><br /><sub><b>Mouayad Alhamwi</b></sub></a><br /><a href="https://github.com/fzyzcjy/flutter_rust_bridge/commits?author=DMouayad" title="Documentation">📖</a></td>
+    </tr>
+    <tr>
+      <td align="center" valign="top" width="14.28%"><a href="https://blog.nightfeather.dev/"><img src="https://avatars.githubusercontent.com/u/77222233?v=4?s=100" width="100px;" alt="NightFeather"/><br /><sub><b>NightFeather</b></sub></a><br /><a href="https://github.com/fzyzcjy/flutter_rust_bridge/commits?author=NightFeather0615" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/JustSimplyKyle"><img src="https://avatars.githubusercontent.com/u/68589851?v=4?s=100" width="100px;" alt="SimplyKyle!"/><br /><sub><b>SimplyKyle!</b></sub></a><br /><a href="https://github.com/fzyzcjy/flutter_rust_bridge/commits?author=JustSimplyKyle" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://www.upsuper.org/"><img src="https://avatars.githubusercontent.com/u/333750?v=4?s=100" width="100px;" alt="Xidorn Quan"/><br /><sub><b>Xidorn Quan</b></sub></a><br /><a href="https://github.com/fzyzcjy/flutter_rust_bridge/commits?author=upsuper" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/not-holar"><img src="https://avatars.githubusercontent.com/u/58831297?v=4?s=100" width="100px;" alt="Vitalii Hurianov"/><br /><sub><b>Vitalii Hurianov</b></sub></a><br /><a href="https://github.com/fzyzcjy/flutter_rust_bridge/commits?author=not-holar" title="Documentation">📖</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://woini.men"><img src="https://avatars.githubusercontent.com/u/52571365?v=4?s=100" width="100px;" alt="九月"/><br /><sub><b>九月</b></sub></a><br /><a href="https://github.com/fzyzcjy/flutter_rust_bridge/commits?author=OfficialBoyfriend" title="Code">💻</a></td>
     </tr>
   </tbody>
 </table>
@@ -258,42 +310,52 @@
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 <p>More specifically, thanks for all these contributions:</p>
 <ul>
-<li><a href="https://github.com/Desdaemon">Desdaemon</a>: Support not only simple enums but also enums with fields which gets translated to native enum or freezed class in Dart. Support the Option type as nullable types in Dart. Support Vec of Strings type. Support comments in code. Add marker attributes for future usage. Add Linux and Windows support for with-flutter example, and make CI works for that. Avoid parameter collision. Overhaul the documentation and add several chapters to demonstrate configuring a Flutter+Rust project in all five platforms. Refactor command module. Precompiled binary CI workflow. Fix bugs. Add support for the Web platform, parallel to the existing mobile/desktop platforms, via WASM and JavaScript as intermediate values. GitHub retry actions. Implement draft of opaque types. Refactor Boxed and Option. Impl list of dates. Parameter defaults. Refactor CLI.</li>
-<li><a href="https://github.com/rogurotus">rogurotus</a>: Add Rust opaque types, enabling arbitrary Rust structs to be used as opaque Dart objects by generating wrappers and raw Arc pointers, as well as Dart opaque types, allowing to use any Dart objects in Rust code. Extend <code>SyncReturn</code> for more types. Fix generation bug. Fix SyncReturn. Migrate to dart-sys. Update CI. Fix linters.</li>
+<li><a href="https://github.com/Desdaemon">Desdaemon</a>: Support not only simple enums but also enums with fields which gets translated to native enum or sealed freezed class in Dart. Support the Option type as nullable types in Dart. Support Vec of Strings type. Support tuple type. Support comments in code. Add marker attributes for future usage. Add Linux and Windows support for with-flutter example, and make CI works for that. Avoid parameter collision. Overhaul the documentation and add several chapters to demonstrate configuring a Flutter+Rust project in all five platforms. Refactor command module. Precompiled binary CI workflow. Fix bugs. Add support for the Web platform, parallel to the existing mobile/desktop platforms, via WASM and JavaScript as intermediate values. GitHub retry actions. Implement draft of opaque types. Refactor Boxed and Option. Impl list of dates and optionals. Parameter defaults. Refactor CLI. Refactor codegen errors.</li>
+<li><a href="https://github.com/rogurotus">rogurotus</a>: Add Rust opaque types, enabling arbitrary Rust structs to be used as opaque Dart objects by generating wrappers and raw Arc pointers, as well as Dart opaque types, allowing to use any Dart objects in Rust code. Extend <code>SyncReturn</code> for more types. Fix generation bug. Fix SyncReturn. Migrate to dart-sys. Update CI. Fix linters. Fix SyncReturn bug. Fix rustfmt::skip.</li>
 <li><a href="https://github.com/ngasull">ngasull</a>: Make sync mode support whatever types that classical async mode supports. Bump sdk.</li>
 <li><a href="https://github.com/SecondFlight">SecondFlight</a>: Allow structs and enums to be imported from other files within the crate by creating source graph. Auto-create relevant dir. Fix <code>store_dart_post_cobject</code> error with ffigen 6.0.</li>
+<li><a href="https://github.com/lattice0">lattice0</a>: Implement hierarchy of exceptions. Support methods, such that Rust struct impls can be converted to Dart class methods. StreamSink at any argument.</li>
 <li><a href="https://github.com/Unoqwy">Unoqwy</a>: Add struct mirrors, such that types in the external crates can be imported and used without redefining and copying.</li>
 <li><a href="https://github.com/antonok-edm">antonok-edm</a>: Avoid converting syn types to strings before parsing to improve code and be more robust.</li>
-<li><a href="https://github.com/lattice0">lattice0</a>: Support methods, such that Rust struct impls can be converted to Dart class methods. StreamSink at any argument.</li>
 <li><a href="https://github.com/sagudev">sagudev</a>: Make code generator a <code>lib</code>. Add error types. Depend on <code>cbindgen</code>. Fix LLVM paths. Update deps. Fix CI errors.</li>
 <li><a href="https://github.com/surban">surban</a>: Support unit return type. Skip unresolvable modules. Ignore prefer_const_constructors. Non-final Dart fields.</li>
 <li><a href="https://github.com/Roms1383">Roms1383</a>: Fix build_runner calling bug. Remove global <code>ffigen</code> dependency. Improve version check. Fix enum name-variant conflicts. Support Chrono date time and UUID types. Migrate to Rust 1.64 workspace. Update and refactor CI. Update header comments. Code cleanup.</li>
 <li><a href="https://github.com/GregoryConrad">GregoryConrad</a>: Add doc to setup frb inside a Dart/Flutter library.</li>
 <li><a href="https://github.com/dbsxdbsx">dbsxdbsx</a>: Allow generating multiple Rust and Dart files. Fix lint. Update doc. Add logging.</li>
-<li><a href="https://github.com/trobanga">trobanga</a>: Add support for <code>[T;N]</code> structs. Add <code>usize</code> support. Add a cmd argument. Separate dart tests.</li>
-<li><a href="https://github.com/SoLongAndThanksForAllThePizza">SoLongAndThanksForAllThePizza</a>: Refactor and enhance SyncReturn to support more types.</li>
-<li><a href="https://github.com/huang12zheng">huang12zheng</a>: Support type aliases and nested ones. Tweak code generation.</li>
+<li><a href="https://github.com/huang12zheng">huang12zheng</a>: Support type aliases and nested ones. Tweak code generation. Fix rust_build_and_test on Mac. Improve CI logic and cache. Remove bridge field in model.</li>
+<li><a href="https://github.com/trobanga">trobanga</a>: Add support for <code>[T;N]</code> structs. Add <code>usize</code> support. Add a cmd argument. Separate dart tests. Fix fallible list case.</li>
+<li><a href="https://github.com/MnlPhlp">MnlPhlp</a>: Support macros and will auto expand. Allow mirror types in streams.</li>
+<li><a href="https://github.com/SoLongAndThanksForAllThePizza">SoLongAndThanksForAllThePizza</a>: Refactor and enhance SyncReturn to support more types. Refactor post-release CI.</li>
 <li><a href="https://github.com/hsfzxjy">hsfzxjy</a>: Fix SyncReturn use-after-free bug.</li>
 <li><a href="https://github.com/Cupnfish">Cupnfish</a>: Support arrays as function parameters. Allow multi mirror.</li>
-<li><a href="https://github.com/temeddix">temeddix</a>: Fix broken CI. Custom num workers. Update doc.</li>
-<li><a href="https://github.com/alanlzhang">alanlzhang</a>: Add generation for Dart metadata. Enhance module parser.</li>
-<li><a href="https://github.com/Zaitam">Zaitam</a>: Fix when method return struct.</li>
+<li><a href="https://github.com/alanlzhang">alanlzhang</a>: Add generation for Dart metadata. Enhance module parser. Fix enum in struct. Fix linter.</li>
+<li><a href="https://github.com/temeddix">temeddix</a>: Fix broken CI. Custom num workers. Fix MacOS doc steps. Update doc. Make zero-copy defaultable.</li>
+<li><a href="https://github.com/Zaitam">Zaitam</a>: Fix when method return struct. Partial migration to Dart 3.</li>
+<li><a href="https://github.com/erikas-taroza">erikas-taroza</a>: Support list of primitive enums. Make enum camelCase. Warn wrong path. Fix cargo expand.</li>
 <li><a href="https://github.com/nitn3lav">nitn3lav</a>: nested <code>struct</code>s without <code>Box</code>.</li>
-<li><a href="https://github.com/erikas-taroza">erikas-taroza</a>: Support list of primitive enums. Make enum camelCase.</li>
 <li><a href="https://github.com/alexthe2">alexthe2</a>: Add Option Datetime. Add empty structs. Improve doc. Add <code>r#</code>. Fix mirror enum bug.</li>
+<li><a href="https://github.com/SiongSng">SiongSng</a>: Finish implementing exception hierarchy. Fix SyncReturn bug.</li>
 <li><a href="https://github.com/AlienKevin">AlienKevin</a>: Add flutter example for macOS. Add doc for Android NDK bug.</li>
 <li><a href="https://github.com/banool">banool</a>: Fix pubspec parsing. Fix symbol-stripping doc.</li>
 <li><a href="https://github.com/coder0xff">coder0xff</a>: Refactor SupportedInnerType. Extra codegen tester.</li>
+<li><a href="https://github.com/anlumo">anlumo</a>: Fix freezed + methods. Non-clone RustOpaque.</li>
+<li><a href="https://github.com/NightFeather0615">NightFeather0615</a>: Fix Vec bool.</li>
+<li><a href="https://github.com/OfficialBoyfriend">OfficialBoyfriend</a>: Fix error display.</li>
+<li><a href="https://github.com/powpingdone">powpingdone</a>: Document JNI init and libc++_static linking.</li>
 <li><a href="https://github.com/efc-mw">efc-mw</a>: Improve Windows encoding handling.</li>
 <li><a href="https://github.com/valeth">valeth</a>: Rename callFfi's port.</li>
 <li><a href="https://github.com/sccheruku">sccheruku</a>: Prevent double-generating utility.</li>
 <li><a href="https://github.com/jsonmona">jsonmona</a>: Add import.</li>
+<li><a href="https://github.com/upsuper">upsuper</a>: Refactor delegate-attr.</li>
 <li><a href="https://github.com/w-ensink">w-ensink</a>: Improve doc. Fix CI. Refactor. Add tests.</li>
 <li><a href="https://github.com/codercengiz">codercengiz</a>: Fix mirroring bug.</li>
 <li><a href="https://github.com/Michael-F-Bryan">Michael-F-Bryan</a>: Detect broken bindings.</li>
+<li><a href="https://github.com/phlip9">phlip9</a>: Fix no-serde compilation.</li>
 <li><a href="https://github.com/bus710">bus710</a>: Add a case in troubleshooting.</li>
 <li><a href="https://github.com/Demezy">Demezy</a>: Mention troubleshooting.</li>
+<li><a href="https://github.com/gutenfries">gutenfries</a>: Bump proc-macros.</li>
 <li><a href="https://github.com/anstadnik">anstadnik</a>: Check keywords.</li>
+<li><a href="https://github.com/aran">aran</a>: Fix pubspec. Bump version.</li>
 <li><a href="https://github.com/Syndim">Syndim</a>: Add a bracket to box.</li>
 <li><a href="https://github.com/TENX-S">TENX-S</a>: Improve doc. Reproduce a bug.</li>
 <li><a href="https://github.com/polypixeldev">polypixeldev</a>: Improve doc.</li>
@@ -302,6 +364,7 @@
 <li><a href="https://github.com/vincent-herlemont">vincent-herlemont</a>: Loosen version.</li>
 <li><a href="https://github.com/zaynetro">zaynetro</a>: Improve doc.</li>
 <li><a href="https://github.com/raphaelrobert">raphaelrobert</a>: Remove oudated doc.</li>
+<li><a href="https://github.com/DMouayad">DMouayad</a>: Improve doc.</li>
 <li><a href="https://github.com/elliotsayes">elliotsayes</a>: Improve doc.</li>
 <li><a href="https://github.com/tmpfs">tmpfs</a>: Improve doc.</li>
 <li><a href="https://github.com/thomas725">thomas725</a>: Improve doc.</li>
@@ -309,10 +372,17 @@
 <li><a href="https://github.com/Voklen">Voklen</a>: Improve doc.</li>
 <li><a href="https://github.com/svenstaro">svenstaro</a>: Improve doc.</li>
 <li><a href="https://github.com/utilForever">utilForever</a>: Fix typos.</li>
+<li><a href="https://github.com/not-holar">not-holar</a>: Fix typos.</li>
 <li><a href="https://github.com/Stonks3141">Stonks3141</a>: Fix doc credit.</li>
+<li><a href="https://github.com/vimaxwell">vimaxwell</a>: Fix doc link.</li>
+<li><a href="https://github.com/lker-dev">lker-dev</a>: Fix doc link.</li>
+<li><a href="https://github.com/jaiakash">jaiakash</a>: Fix doc link.</li>
 <li><a href="https://github.com/feber">feber</a>: Fix doc link.</li>
+<li><a href="https://github.com/satvikpendem">satvikpendem</a>: Little co-work #989.</li>
 <li><a href="https://github.com/rustui">rustui</a>: Fix a typo.</li>
+<li><a href="https://github.com/escwxyz">escwxyz</a>: Fix a typo.</li>
 <li><a href="https://github.com/eltociear">eltociear</a>: Fix a typo.</li>
+<li><a href="https://github.com/thesimplekid">thesimplekid</a>: Fix a typo.</li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="quickstart"><a class="header" href="#quickstart">Quickstart</a></h1>
 <p>Write down Rust functions and types normally.</p>
@@ -418,7 +488,7 @@ a workaround, see <a href="tutorial/./alternative_ndk.html">this article</a>.</p
 <pre><code class="language-shell">cargo install cargo-ndk
 </code></pre>
 <p>Then run (all Rust versions)</p>
-<pre><code class="language-shell">cargo ndk -o ../android/app/src/main/jniLibs build`
+<pre><code class="language-shell">cargo ndk -o ../android/app/src/main/jniLibs build
 </code></pre>
 <p>Then run the Flutter app normally with <code>flutter run</code>.</p>
 <p><strong>Remark</strong>: <a href="https://stackoverflow.com/q/69515032/4619958">This tutorial</a> will help you automatically execute <code>cargo</code> builds when building Flutter app.</p>
@@ -468,7 +538,7 @@ you need to manually create four text files to redirect calls from libgcc to lib
 <h2 id="prelogue"><a class="header" href="#prelogue">Prelogue</a></h2>
 <h3 id="what-this-library-is-and-is-not"><a class="header" href="#what-this-library-is-and-is-not">What this library is and is not</a></h3>
 <p>This library is nothing but a code generator that helps your Flutter/Dart functions call Rust functions. It only generates some boilerplate code that you will manually write down otherwise. Moreover, we have provided detailed tutorials for you to play with examples, set up brand new apps, and integrate with existing apps.</p>
-<p>Of course, you may still need to have some basic familiarity with Flutter/Dart, Rust, and its <a href="https://flutter.dev/docs/development/platform-integration/c-interop">ffi</a>.</p>
+<p>Of course, you may still need to have some basic familiarity with Flutter/Dart, Rust, and its ffi. (Link for <a href="https://docs.flutter.dev/platform-integration/android/c-interop">Android</a>, <a href="https://docs.flutter.dev/platform-integration/ios/c-interop">iOS</a> and <a href="https://docs.flutter.dev/platform-integration/macos/c-interop">macOS</a>)</p>
 <h3 id="full-examples"><a class="header" href="#full-examples">Full examples</a></h3>
 <p>If you want to look at a lot of examples - I have to warn you, really too many - have a look at <a href="https://github.com/fzyzcjy/flutter_rust_bridge/blob/master/frb_example/pure_dart/rust/src/api.rs">pure_dart's api.rs</a>. It contains all tests for this library.</p>
 <p>In addition, when you are quite familiar with the basic example, you can then take a look at <a href="https://github.com/fzyzcjy/flutter_rust_bridge/tree/master/frb_example/pure_dart_multi/rust/src">pure_dart_multi</a>. This example contains multiple blocks of APIs instead of one, which is quite useful for complex projects.</p>
@@ -477,25 +547,28 @@ you need to manually create four text files to redirect calls from libgcc to lib
 <div style="break-before: page; page-break-before: always;"></div><h1 id="simple-correspondence"><a class="header" href="#simple-correspondence">Simple correspondence</a></h1>
 <p>Here is a brief glance showing what the code generator can generate (non-exhaustive). Some rows have hyper-links pointing to more detailed explanations.</p>
 <div class="table-wrapper"><table><thead><tr><th>Rust</th><th>Dart</th></tr></thead><tbody>
-<tr><td><a href="feature/lang_vec.html"><code>Vec&lt;u8&gt;</code>, <code>Vec&lt;i8&gt;</code>..</a></td><td><code>Uint8List</code>, <code>Int8List</code>, ..</td></tr>
+<tr><td><a href="feature/lang_vec.html"><code>Vec&lt;u8&gt;</code>..<code>Vec&lt;u64&gt;</code></a></td><td><code>Uint8List</code>..<code>Uint64List</code></td></tr>
+<tr><td><a href="feature/lang_vec.html"><code>Vec&lt;i8&gt;</code>..<code>Vec&lt;i64&gt;</code></a></td><td><code>Int8List</code>..<code>Int64List</code></td></tr>
+<tr><td><a href="feature/lang_vec.html"><code>Vec&lt;f32&gt;</code>, <code>Vec&lt;f64&gt;</code></a></td><td><code>Float32List</code>, <code>Float64List</code></td></tr>
 <tr><td><a href="feature/lang_vec.html"><code>Vec&lt;T&gt;</code></a></td><td><code>List&lt;T&gt;</code></td></tr>
 <tr><td><a href="feature/lang_vec.html"><code>[T; N]</code></a></td><td><code>List&lt;T&gt;</code></td></tr>
 <tr><td><a href="feature/lang_struct.html"><code>struct { .. }</code>, <code>struct( .. )</code></a></td><td><code>class</code></td></tr>
 <tr><td><a href="feature/lang_enum.html"><code>enum { A, B }</code></a></td><td><code>enum</code></td></tr>
-<tr><td><a href="feature/lang_enum.html"><code>enum { A(..) }</code></a></td><td><code>@freezed class</code></td></tr>
+<tr><td><a href="feature/lang_enum.html"><code>enum { A(..) }</code></a></td><td><code>@freezed sealed class</code></td></tr>
 <tr><td><a href="feature/lang_external.html"><code>use ...</code></a></td><td>act normally</td></tr>
 <tr><td><a href="feature/lang_option.html"><code>Option&lt;T&gt;</code></a></td><td><code>T?</code></td></tr>
 <tr><td><a href="feature/lang_rust_opaque.html">Arbitrary Rust types (opaque)</a></td><td><code>RustOpaque</code></td></tr>
 <tr><td><code>DartOpaque</code></td><td><a href="feature/lang_dart_opaque.html">Arbitrary Dart types (opaque)</a></td></tr>
+<tr><td><a href="feature/lang_exceptions.html"><code>Result::Err</code>, panic</a></td><td><code>throw Exception</code></td></tr>
 <tr><td><code>Box&lt;T&gt;</code></td><td><code>T</code></td></tr>
 <tr><td>comments</td><td>same</td></tr>
-<tr><td><code>Result::Err</code>, panic</td><td><code>throw Exception</code></td></tr>
 <tr><td><code>i8</code>, <code>u8</code>, .., <code>usize</code></td><td><code>int</code></td></tr>
 <tr><td><code>f32</code>, <code>f64</code></td><td><code>double</code></td></tr>
 <tr><td><code>bool</code></td><td><code>bool</code></td></tr>
 <tr><td><code>String</code></td><td><code>String</code></td></tr>
 <tr><td><code>()</code></td><td><code>void</code></td></tr>
 <tr><td><code>type A = B</code></td><td><a href="feature/lang_type_alias.html">type alias</a></td></tr>
+<tr><td><a href="feature/lang_tuple.html"><code>(T, U, ..)</code></a></td><td><a href="https://dart.dev/language/records"><code>(T, U, ..)</code></a></td></tr>
 </tbody></table>
 </div>
 <p>Types from <code>chrono</code> crate are supported as a feature, see <a href="feature/lang_chrono.html">here</a>.
@@ -503,7 +576,8 @@ Types from <code>uuid</code> crate are supported as a feature, see <a href="feat
 <p>Raw strings are supported for struct field names. For example, you can have <code>struct S { r#type: i32 }</code>. In dart, the <code>r#</code> prefix will be correctly removed. They are not yet supported for function arguments.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="vec-and-array"><a class="header" href="#vec-and-array">Vec and array</a></h1>
 <h2 id="vecu8-veci8-"><a class="header" href="#vecu8-veci8-"><code>Vec&lt;u8&gt;</code>, <code>Vec&lt;i8&gt;</code>, ...</a></h2>
-<p>In Dart, when you want to express a long byte array such as a big image or some binary blob, people normally use <code>Uint8List</code> instead of <code>List&lt;int&gt;</code> since the former is much performant. <code>flutter_rust_bridge</code> takes this into consideration for you. When you have <code>Vec&lt;u8&gt;</code> (or <code>Vec&lt;i8&gt;</code>, or <code>Vec&lt;i32&gt;</code>, etc), it will be translated it into <code>Uint8List</code> or its friends.</p>
+<p>In Dart, when you want to express a long byte array such as a big image or some binary blob, people normally use <code>Uint8List</code> instead of <code>List&lt;int&gt;</code> since the former is much performant. <code>flutter_rust_bridge</code> takes this into consideration for you. When you have <code>Vec&lt;u8&gt;</code> (or <code>Vec&lt;i8&gt;</code>, or <code>Vec&lt;i32&gt;</code>, etc), it will be translated into <code>Uint8List</code> or its friends.</p>
+<p><a href="feature/lang_simple.html">This section</a> provides more details about <code>Vec&lt;u8&gt;</code> and its friends.</p>
 <h2 id="vect"><a class="header" href="#vect"><code>Vec&lt;T&gt;</code></a></h2>
 <p>When you have normal <code>Vec&lt;T&gt;</code> for <code>T</code> types other than <code>u8</code>, <code>i8</code> etc, it will be converted to normal <code>List&lt;T&gt;</code>.</p>
 <p>Remark: <code>Vec&lt;Box&lt;T&gt;&gt;</code> is not supported yet though fixable (<a href="https://github.com/fzyzcjy/flutter_rust_bridge/issues/1072">#1072</a>), but according to <a href="https://rust-lang.github.io/rust-clippy/master/index.html#vec_box">clippy lints</a>, it is usually better to use <code>Vec&lt;T&gt;</code> directly.</p>
@@ -617,6 +691,34 @@ class KitchenSink with _$KitchenSink {
 </code></pre>
 <p>And they are powered with <a href="https://pub.dev/packages/freezed">all functionalities</a> of <code>freezed</code>.</p>
 <p>Remark: If you are curious about <code>Future</code>, have a look at <a href="feature/async_dart.html">this</a>.</p>
+<h2 id="pattern-matching-in-dart"><a class="header" href="#pattern-matching-in-dart">Pattern matching in Dart</a></h2>
+<p>Introduced in Dart 3, sealed classes can be used to <a href="https://dart.dev/language/patterns">pattern match</a> values,
+enabling exhaustive variant checks and refuable patterns among other capabilities. Refer to <a href="https://dart.dev/language/patterns#switch-statements-and-expressions">the documentation</a>
+for more details.</p>
+<p>This feature supersedes Freezed's <code>map</code> and <code>when</code> families of methods.
+You can opt out of generating sealed classes by passing <code>--no-dart3</code> when running codegen.</p>
+<pre><code class="language-rust noplayground">pub enum Maybe {
+    None,
+    Some { value: i32 },
+}</code></pre>
+<pre><code class="language-dart">Maybe maybe;
+final value = switch (maybe) {
+  Maybe_None() =&gt; 'got nothing',
+  Maybe_Some(:final value) =&gt; 'got value: $value',
+};
+// single case à la if-let
+if (maybe case Maybe_Some(:final value)) {
+  ..
+}
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="tuples"><a class="header" href="#tuples">Tuples</a></h1>
+<p>Introduced in Dart 3, <a href="https://dart.dev/language/records">records</a> provide the equivalent of Rust's tuples.
+Tuples of up to 10 elements are supported, and more can be added by nesting tuples. Tuples can be returned,
+received as parameters, and stored inside structs.</p>
+<pre><code class="language-rust noplayground">pub fn my_coordinate() -&gt; (f64, f64);</code></pre>
+<pre><code class="language-dart">(double, double) myCoordinate();
+final (lat, long) = myCoordinate();
+</code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="external-types"><a class="header" href="#external-types">External types</a></h1>
 <h2 id="types-in-other-files-within-the-same-crate"><a class="header" href="#types-in-other-files-within-the-same-crate">Types in other files within the same crate</a></h2>
 <p>Imported symbols can be used normally. For example, with <code>use crate::data::{MyEnum, MyStruct};</code>, you can use <code>MyEnum</code> or <code>MyStruct</code> in your code normally.</p>
@@ -715,6 +817,7 @@ class Element {
 <p>Remark: If you are curious about <code>Future</code>, have a look at <a href="feature/async_dart.html">this</a>.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="methods"><a class="header" href="#methods">Methods</a></h1>
 <p>There is support for structs with methods. Both static methods, and non-static methods are supported.</p>
+<p>Related configuration: <code>--no-use-bridge-in-method</code> (see below for an example).</p>
 <h2 id="example-6"><a class="header" href="#example-6">Example</a></h2>
 <pre><code class="language-rust noplayground">pub struct SumWith { pub x: u32 }
 
@@ -734,6 +837,23 @@ impl SumWith {
 
   Future&lt;int&gt; sum({required int y, dynamic hint}) =&gt; ..
   static Future&lt;int&gt; sum({required int x, required int y, dynamic hint}) =&gt; ..
+}
+</code></pre>
+<p>Or show as follow if you use flag <code>--no-use-bridge-in-method</code>:</p>
+<pre><code class="language-dart">class SumWith {
+  final int x;
+
+  const SumWith({
+    required this.x,
+  });
+
+  Future&lt;int&gt; sum({required int y, dynamic hint}) =&gt; api.sumMethodSumWith(
+        that: this,
+        y: y,
+      );
+
+  static Future&lt;int&gt; sumStatic({required int x, required int y, dynamic hint}) =&gt;
+      api.sumStaticStaticMethodSumWith(x: x, y: y, hint: hint);
 }
 </code></pre>
 <p>Remark: If you are curious about <code>Future</code>, have a look at <a href="feature/async_dart.html">this</a>.</p>
@@ -841,18 +961,47 @@ pub struct TestModel { pub id: Id, pub e: EnumAlias, pub s: StructAlias}
 pub fn f(input: Id) -&gt; TestModel {...}</code></pre>
 <h2 id="limitation"><a class="header" href="#limitation">Limitation</a></h2>
 <p>The <code>ItemType</code> inside Generic is not supported yet, such as <code>SyncReturn&lt;Id&gt;</code>. The nested <code>ItemType</code> may also not be supported.</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="exceptions"><a class="header" href="#exceptions">Exceptions</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="result--exceptions"><a class="header" href="#result--exceptions">Result / Exceptions</a></h1>
 <ol>
 <li>For Result/Error, the<code>anyhow::Result</code>/<code>anyhow::Error</code> is supported. It will be automatically converted to a Dart Exception.</li>
 <li>For <code>panic</code>s, it will also be automatically captured and converted to Dart exceptions.</li>
-<li><a href="https://github.com/fzyzcjy/flutter_rust_bridge/pull/582">#582</a> adds support for error hierarchy, or arbitrary error types. For example, you can create your own <code>CustomError</code> (such as using <code>thiserror</code>), and it will automatically be converted to a new Dart class. The PR is already almost completed (with the hard work done), and the missing piece is fixing the test errors. I have provided some guidance about how to fix it at the PR comments as well.</li>
+<li>For error hierarchy, or arbitrary error types, it is also supported. For example, you can create your own <code>CustomError</code> (such as using <code>thiserror</code>), and it will automatically be converted to a new Dart class.</li>
 </ol>
 <p>If you want to see stack traces (backtraces), <a href="feature/stack_trace.html">this doc page</a> discusses how to configure it.</p>
 <h2 id="example-9"><a class="header" href="#example-9">Example</a></h2>
+<h3 id="example-1-anyhow-result"><a class="header" href="#example-1-anyhow-result">Example 1: Anyhow Result</a></h3>
 <p>For example, the following code, when called by Dart code, will throw Dart exceptions.</p>
-<pre><code class="language-rust noplayground">pub fn f() -&gt; anyhow::Result&lt;i32&gt; { bail!(&quot;oops I failed&quot;) }
+<pre><code class="language-rust noplayground">pub fn f() -&gt; anyhow::Result&lt;i32&gt; { bail!(&quot;oops I failed&quot;) }</code></pre>
+<h3 id="example-2-panic"><a class="header" href="#example-2-panic">Example 2: Panic</a></h3>
+<p>All functions below, when called, will throw Dart exceptions at the Dart side due to the <code>panic</code>.</p>
+<pre><code class="language-rust noplayground">pub fn g1() -&gt; i32 { panic!(&quot;oops I failed&quot;) }
+pub fn g2() -&gt; anyhow::Result&lt;String&gt; { panic!(&quot;oops I failed&quot;) }
+pub fn g3() -&gt; Result&lt;Vec&lt;u8&gt;, CustomError&gt; { panic!(&quot;oops I failed&quot;) }</code></pre>
+<h3 id="example-3-custom-error-without-backtrace"><a class="header" href="#example-3-custom-error-without-backtrace">Example 3: Custom Error Without backtrace</a></h3>
+<pre><code class="language-rust noplayground">pub enum CustomError {
+    Error0(String),
+    Error1(u32),
+}
 
-pub fn g() -&gt; i32 { panic!(&quot;oops I failed&quot;) }</code></pre>
+pub fn return_err_custom_error() -&gt; Result&lt;u32, CustomError&gt; {
+    Err(CustomError::Error1(3))
+}</code></pre>
+<p>Becomes something that can be used like this:</p>
+<pre><code class="language-Dart">try {
+    final r = await api.returnErrCustomError();
+    print(&quot;received $r&quot;);
+} catch (e) {
+    print('dart catch e: $e');
+    expect(e, isA&lt;CustomError&gt;());
+}
+</code></pre>
+<h3 id="example-4-custom-error-with-backtrace"><a class="header" href="#example-4-custom-error-with-backtrace">Example 4: Custom Error With backtrace</a></h3>
+<p>Errors with custom fields are also supported, and you can even pass a backtrace:</p>
+<pre><code class="language-rust noplayground">pub enum CustomStructError {
+    Error0 { e: String, backtrace: Backtrace },
+    Error1 { e: u32, backtrace: Backtrace },
+}</code></pre>
+<p>As for how to fill it in or use it, you can refer to <code>thiserror</code> crate for some hints.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="parameter-defaults"><a class="header" href="#parameter-defaults">Parameter defaults</a></h1>
 <p>Dart allows default values for function and constructor parameters, and you can achieve the same effect using <code>#[frb(default)]</code>. The syntax is as follows:</p>
 <ul>
@@ -873,13 +1022,19 @@ pub fn defaults(
 );</code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="zero-copy"><a class="header" href="#zero-copy">Zero copy</a></h1>
 <p><code>ZeroCopyBuffer&lt;Vec&lt;u8&gt;&gt;</code> (and its friends like <code>ZeroCopyBuffer&lt;Vec&lt;i8&gt;&gt;</code>) sends the data from Rust to Dart without making copies<sup class="footnote-reference"><a href="#1">1</a></sup>. Thus, you save the time of copying data, which can be large if your data is big (such as a high-resolution image).</p>
+<h2 id="make-it-the-default"><a class="header" href="#make-it-the-default">Make it the default</a></h2>
+<p>If you don't want to wrap <code>Vec&lt;u8&gt;</code> and its friends with <code>ZeroCopyBuffer</code> over and over again to avoid copying memory, you can alternatively provide a cargo feature called <code>zero-copy</code>. With this feature enabled, <code>Vec&lt;u8&gt;</code> and its friends will be zero-copied by default.</p>
+<pre><code class="language-toml"># Cargo.toml
+[dependencies]
+flutter_rust_bridge = { version = &quot;...&quot;, features = [&quot;zero-copy&quot;] }
+</code></pre>
 <h2 id="example-10"><a class="header" href="#example-10">Example</a></h2>
 <pre><code class="language-rust noplayground">pub fn draw_tree(tree: Vec&lt;TreeNode&gt;) -&gt; ZeroCopyBuffer&lt;Vec&lt;u8&gt;&gt; { ... }</code></pre>
 <p>Becomes:</p>
 <pre><code class="language-Dart">Future&lt;Uint8List&gt; drawTree({required List&lt;TreeNode&gt; tree});
 </code></pre>
-<p>The generated Dart code looks exactly the same as the case without <code>ZeroCopyBuffer</code>. However, the internal implementation changes and there is no memory copy at all!</p>
-<p>Remark: If you are curious about <code>Future</code>, have a look at <a href="feature/async_dart.html">this</a>.</p>
+<p>The generated Dart code looks exactly the same as the case without <code>ZeroCopyBuffer</code>. However, the internal implementation changes and now there is no memory copy at all!</p>
+<p>If you are curious about what those <code>Vec&lt;u8&gt;</code> and its friends actually are, take a look at <a href="feature/lang_simple.html">this</a>.</p>
 <div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
 <p>Not currently supported on Web, and will fallback to copying the buffer.</p>
 </div>
@@ -887,7 +1042,7 @@ pub fn defaults(
 <p>What is <code>Stream</code>? In short: call once, return multiple times; like <code>Iterator</code>s.</p>
 <p>Flutter's <a href="https://dart.dev/tutorials/language/streams">Stream</a> is a powerful abstraction. When using it as the return value of Rust function, we can allow the scenario that we call function once, and then return multiple times.</p>
 <p>For example, your Rust function may run computationally heavy algorithms, and for every hundreds of milliseconds, it finds out a new piece of the full solution. In this case, it can immediately give that piece to Flutter, then Flutter can render it to UI immediately. Therefore, users do not need to wait for the full algorithm to finish before he can see some partial results on the user interface.</p>
-<p>As for the details, a Rust function with signature like <code>fn f(sink: StreamSink&lt;T&gt;, ..) -&gt; Result&lt;()&gt;</code> is translated to a Dart function  <code>Stream&lt;T&gt; f(..)</code>.</p>
+<p>As for the details, a Rust function with signature like <code>fn f(sink: StreamSink&lt;T&gt;, ..) -&gt; Result&lt;()&gt;</code> is translated to a Dart function <code>Stream&lt;T&gt; f(..)</code>.</p>
 <p>Notice that, you can hold that <code>StreamSink</code> forever, and use it freely even <em>after the Rust function itself returns</em>. The logger example below also demonstrates this (the <code>create_log_stream</code> returns almost immediately, while you can use the <code>StreamSink</code> after, say, an hour).</p>
 <p>The <code>StreamSink</code> can be placed at any location. For example, <code>fn f(a: i32, b: StreamSink&lt;String&gt;)</code> and <code>fn f(a: StreamSink&lt;String&gt;, b: i32)</code> are both valid.</p>
 <h2 id="examples"><a class="header" href="#examples">Examples</a></h2>
@@ -1050,7 +1205,7 @@ fn main() {
 <div style="break-before: page; page-break-before: always;"></div><h1 id="logging"><a class="header" href="#logging">Logging</a></h1>
 <p>Since I have seen some questions asking how logging can be implemented with a Flutter + Rust application, here are some examples.</p>
 <h2 id="logger-in-production"><a class="header" href="#logger-in-production">Logger in production</a></h2>
-<p>In my own app in production, I use the following strategy for Rust logging: Use normal Rust logging methods, such as <code>info!</code> and <code>debug!</code> macros. The logs are consumed in two places: They are printed via platform-specific methods (like android Logcat and iOS NSLog), and also use a Stream to send them to the Dart side such that my Dart code and further process it using the same pipeline as normal Dart logs (e.g. save to a file, send to server, etc).</p>
+<p>In my own app in production, I use the following strategy for Rust logging: Use normal Rust logging methods, such as <code>info!</code> and <code>debug!</code> macros. The logs are consumed in two places: They are printed via platform-specific methods (like android Logcat and iOS NSLog), and also use a Stream to send them to the Dart side such that my Dart code and further process are using the same pipeline as normal Dart logs (e.g. save to a file, send to server, etc).</p>
 <p>The <em>full</em> code related to logging in my app can be seen here: <a href="https://github.com/fzyzcjy/flutter_rust_bridge/issues/486">#486</a>.</p>
 <h2 id="simple-logger"><a class="header" href="#simple-logger">Simple logger</a></h2>
 <p>Let us implement a simple logging system (adapted from the logging system I use with <code>flutter_rust_bridge</code> in my app in production), where Rust code can send logs to Dart code.</p>
@@ -1084,7 +1239,7 @@ To fix this error you should just rerun <code>flutter_rust_bridge_codegen</code>
 </code></pre>
 <p>And now we can happily log anything in Rust:</p>
 <pre><code class="language-rust noplayground">log_stream_sink.add(LogEntry { msg: &quot;hello I am a log from Rust&quot;, ... })</code></pre>
-<p>Of course, you can implement a logger following the Rust's <code>log</code> crate wrapping this raw stream sink, then you can use standard Rust logging mechanisms like <code>info!</code>. I exactly did that in my project.</p>
+<p>Of course, you can implement a logger following the Rust's <code>log</code> crate wrapping this raw stream sink, then you can use standard Rust logging mechanisms like <code>info!</code>. I did exactly that in my project.</p>
 <h3 id="example-simple-timer"><a class="header" href="#example-simple-timer">Example: Simple timer</a></h3>
 <p>Credits: <a href="https://gist.github.com/Desdaemon/be5da0a1c6b4724f20093ef434959744">this</a> and <a href="https://github.com/fzyzcjy/flutter_rust_bridge/issues/347">#347</a>.</p>
 <pre><code class="language-rust noplayground">use anyhow::Result;
@@ -1161,7 +1316,7 @@ class _MyHomePageState extends State&lt;MyHomePage&gt; {
             StreamBuilder&lt;int&gt;(
               stream: ticks,
               builder: (context, snap) {
-                final style = Theme.of(context).textTheme.headline4;
+                final style = Theme.of(context).textTheme.headlineMedium;
                 final error = snap.error;
                 if (error != null)
                   return Tooltip(
@@ -1201,6 +1356,14 @@ flutter_rust_bridge = { workspace = true, features = [&quot;worker-max&quot;] }
 </ul>
 <p>Note that both non-WASM and WASM configurations provide true multithreaded parallelism. They both utilize actual threads in logical cores. However, you do need to be aware of the limitations of WASM, such as inability to use shared memory, etc.</p>
 <p>The options are experimental, and may change later. However, it should be trivial to migrate even if it changes.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="expanding-macros"><a class="header" href="#expanding-macros">Expanding macros</a></h1>
+<p>This library automatically handles macros inside your code. For example, support you calls a macro that will generate a struct, then even if that struct is not in the code directly, this library can understand it.</p>
+<p>The implementation is as follows: To produce code for types or functions that are generated through macros, it is necessary to first expand the code before it is parsed. This is done by invoking <a href="https://crates.io/crates/cargo-expand">cargo-expand</a>, a tool that expands all macros, resulting in code that can then be parsed.</p>
+<p>Caution: This expansion process <strong>cannot</strong> be utilized when the code-generator is invoked within a <code>build.rs</code> script.
+The issue here is that <code>cargo-expand</code> triggers a project build, and invoking it within <code>build.rs</code> would lead to a deadlock, as <code>cargo-expand</code> would wait for the calling cargo build to complete.
+In such cases, code is read from files without macro expansion.
+If your API definition does not rely on macros for code generation, this works fine.
+Otherwise, you have to call the <code>flutter_rust_bridge_codegen</code> binary seperately.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="create-new-projects-from-a-template"><a class="header" href="#create-new-projects-from-a-template">Create new projects from a template</a></h1>
 <p>In this chapter, we are going to use create your own project from a code template. It seems a bit long, but it is just because we have tried to describe <em>every detail</em> that you may encounter.</p>
 <p><strong>Remark:</strong> Most complexity does <em>not</em> come from this library, <code>flutter_rust_bridge</code> - it is as same complex as using raw Dart/Flutter FFI with Rust. In other words, it is the Dart/Flutter + Rust toolchain that takes time to set up.</p>
@@ -1267,21 +1430,16 @@ platforms the easiest even from scratch. The template uses <a href="https://gith
 -FetchContent_Declare(
 -    Corrosion
 -    GIT_REPOSITORY https://github.com/AndrewGaspar/corrosion.git
--    GIT_TAG origin/master # Optionally specify a version tag or branch here
+-    GIT_TAG v0.4.4 # Optionally specify a version tag or branch here
 -)
 -
 -FetchContent_MakeAvailable(Corrosion)
 </code></pre>
 <h2 id="troubleshooting-cmake-on-linux"><a class="header" href="#troubleshooting-cmake-on-linux">Troubleshooting: CMake on Linux</a></h2>
-<p>The minimum version of CMake required to use <a href="https://github.com/corrosion-rs/corrosion">Corrosion</a> is 3.12, which is not the version set
-by default in <code>CMakeLists.txt</code>. You will need to modify this line in <code>linux/CMakeLists.txt</code>:</p>
-<pre><code class="language-diff">-cmake_minimum_required(VERSION 3.10)
-+cmake_minimum_required(VERSION 3.12)
-</code></pre>
-<p>However, this has a separate issue of disallowing Flutter SDK installations via Snap to build,
-as these are bundled with a non-upgradeable CMake 3.10. If possible, it is recommended to install
-Flutter manually using the command line. This issue may be resolved once
-<a href="https://github.com/canonical/flutter-snap/pull/61">canonical/flutter-snap#61</a> lands.</p>
+<p>Unless you have certain use-cases that you require from the latest versions of <a href="https://github.com/corrosion-rs/corrosion">Corrosion</a>, it is recommended to
+use <strong>v0.4.x</strong> in your build scripts since CMake versions supplied by the system and/or Flutter snap installations
+trail behind the master branch. This will relax the CMake requirement to v15, which should be generally available
+from most package maintainers and Flutter snaps.</p>
 <p>A workaround is to ignore <code>rust.cmake</code> and manually configure CMake to build and bundle the Rust library, as suggested by
 <a href="https://github.com/fzyzcjy/flutter_rust_bridge/issues/318#issuecomment-1038751426">this comment</a>
 in the case of Flutter on ARM Linux.</p>
@@ -1373,16 +1531,16 @@ you might have to modify <code>justfile</code> to explicitly point to its locati
 <div style="break-before: page; page-break-before: always;"></div><h1 id="using-build_runner"><a class="header" href="#using-build_runner">Using <code>build_runner</code></a></h1>
 <p>Inspect your <code>lib/bridge_generated.dart</code> and you will see that the definition of <code>Platform</code> has changed:</p>
 <pre><code class="language-dart">@freezed
-class Platform with _$Platform {
-    const factory Platform.unknown() = Unknown;
-    const factory Platform.android() = Android;
-    const factory Platforn.ios() = Ios;
-    const factory Platform.windows() = Windows;
-    const factory Platform.unix() = Unix;
+sealed class Platform with _$Platform {
+    const factory Platform.unknown() = Platform_Unknown;
+    const factory Platform.android() = Platform_Android;
+    const factory Platforn.ios() = Platform_Ios;
+    const factory Platform.windows() = Platform_Windows;
+    const factory Platform.unix() = Platform_Unix;
     const factory Platform.macOs(
         String field0,
-    ) = MacOs;
-    const factory Platform.wasm() = Wasm;
+    ) = Platform_MacOs;
+    const factory Platform.wasm() = Platform_Wasm;
 }
 </code></pre>
 <p>It is no longer a plain enum, but a full-blown enum class with variants! As it is right now, this code
@@ -1445,6 +1603,19 @@ of it! Here is an example of what you can do with freezed enums.</p>
 </code></pre>
 <p>When you <code>flutter run</code>, you should get something like this:
 <img src="template/macos_intel.png" alt="macos-intel" /></p>
+<h2 id="tip-using-switch-expressions"><a class="header" href="#tip-using-switch-expressions">Tip: Using switch expressions</a></h2>
+<p>Introduced in Dart 3, switch expressions provide the equivalent of Rust's <code>match</code> expressions, complete with exhaustive checks.
+Instead of using <code>when()</code> in the above example, you could also use this syntax:</p>
+<pre><code class="language-dart">final text = switch (platform) {
+  Platform_Android() =&gt; 'Android',
+  Platform_Ios() =&gt; 'iOS',
+  Platform_MacOs(:final arch) =&gt; 'MacOS on $arch',
+  Platform_Windows() =&gt; 'Windows',
+  Platform_Unix() =&gt; 'Unix',
+  Platform_Wasm() =&gt; 'the Web',
+  // we have covered all cases, so this compiles.
+};
+</code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="integrating-with-existing-projects"><a class="header" href="#integrating-with-existing-projects">Integrating with existing projects</a></h1>
 <p>This guide is an intermediate-level introduction to integrating Rust with
 an existing Flutter project. If you are new to Rust or configuring
@@ -1647,8 +1818,8 @@ crate-type = [&quot;lib&quot;, &quot;staticlib&quot;, &quot;cdylib&quot;]
 <pre><code class="language-bash">cargo xcode
 </code></pre>
 <p>This will generate a <code>$crate/$crate.xcodeproj</code> that can be imported into other Xcode projects.
-You only have to do this once per crate.
-Don't open the project yet; we need to configure it through the parent projects first.</p>
+You only have to do this once per crate.</p>
+<p>Now, open up that <code>$crate/$crate.xcodeproj</code> file with Xcode and select the root item at the left pane. The item's name will be identical to your crate's name. In the <strong>Build Settings</strong> tab, search for <code>Dynamic Library Install Name Base</code> and change the value into <code>@executable_path/../Frameworks/</code>. This is <a href="https://lib.rs/crates/cargo-xcode#:~:text=DYLIB_INSTALL_NAME_BASE">required by cargo-xcode</a> to enable macOS executable to properly locate <code>.dylib</code> library files in the package.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="linking-the-project"><a class="header" href="#linking-the-project">Linking the project</a></h1>
 <p>Open <code>ios/Runner.xcodeproj</code> in Xcode, then add <code>$crate/$crate.xcodeproj</code> as a <em>subproject</em>
 of the Runner project. It should look like this:</p>
@@ -1692,8 +1863,8 @@ the symbols.</p>
 <p>Add <code>ios/Runner/bridge_generated.h</code> (or <code>macos/Runner/bridge_generated.h</code>)
 to the project, either by dragging it onto the project tree or
 via the <strong>Add Files to &quot;Runner&quot;...</strong> menu option.</p>
-<p>Switch to the <strong>Build Phases</strong> tab and drag the <strong>bridge_generated.h</strong> file over
-to the <strong>Copy Bundle Resources</strong> phase, if it isn't already present.</p>
+<p>Switch to the <strong>Build Phases</strong> tab and drag the <code>bridge_generated.h</code> file over
+to the <strong>Copy Bundle Resources</strong> section, if it isn't already present.</p>
 <h2 id="ios"><a class="header" href="#ios">iOS</a></h2>
 <p>Next, add this line to <code>ios/Runner/Runner-Bridging-Header.h</code>:</p>
 <pre><code class="language-diff">+#import &quot;bridge_generated.h&quot;
@@ -1720,6 +1891,7 @@ to the <strong>Copy Bundle Resources</strong> phase, if it isn't already present
 <p>Flutter on MacOS does not use headers by default, so let's go ahead
 and add one ourselves. In the <strong>Build Settings</strong> tab, set the
 <strong>Objective-C Bridging Header</strong> to be <strong>Runner/bridge_generated.h</strong>.</p>
+<p>Also, head over to the <strong>Build Phases</strong> tab, <strong>Bundle Framework</strong> section and add your <code>$crate.dylib</code> by clicking the plus button. This includes your dynamic library file in your app package.</p>
 <p>Finally, use <code>dummy_method_to_enforce_bundling</code> somewhere within
 <code>macos/Runner/AppDelegate.swift</code>, as long as Xcode does not consider it dead code.</p>
 <h1 id="for-multi-blocks"><a class="header" href="#for-multi-blocks">For multi-blocks</a></h1>
@@ -1845,7 +2017,7 @@ making a Dart-only library base with a Flutter library built on top of it.</p>
 </ul>
 <p>But you also don't need to publish your library either!
 You can just use your library internally in a monorepo,
-<a href="library/library/melos.html">as described later on</a>.</p>
+<a href="library/melos.html">as described later on</a>.</p>
 <h2 id="high-level-design"><a class="header" href="#high-level-design">High Level Design</a></h2>
 <p>We will build out our library from scratch, piece by piece, allowing you to include
 only what you want in your library.
@@ -3306,17 +3478,15 @@ jobs:
 <h3 id="publish-new-releases-to-github-releases-and-pubdev-githubworkflowspublish-releaseyml"><a class="header" href="#publish-new-releases-to-github-releases-and-pubdev-githubworkflowspublish-releaseyml">Publish new releases to GitHub releases and pub.dev (<code>/.github/workflows/publish-release.yml</code>)</a></h3>
 <p>In order for this workflow to execute correctly and publish packages to pub.dev,
 you need to have the contents of your pub credentials JSON file in a GitHub repo secret.</p>
-<p>After signing into pub locally:</p>
+<p>First you need to sign-in into your pub account locally by
+running the following command: <code>dart pub login</code>.</p>
+<p>After the authorization is completed, open the credentials file, which can be found:</p>
 <ul>
-<li>On Linux, open the file at <code>~/.config/dart/pub-credentials.json</code>,</li>
-<li>On macOS, open the file at <code>~/Library/Application Support/dart/pub-credentials.json</code></li>
-<li>Not sure where the <code>dart</code> config folder is on Windows, but you should be able to find it
-<ul>
-<li>Feel free to PR and fix this if you find it!
-And copy the contents of this <code>pub-credentials.json</code> file to a new GitHub repo secret named <code>PUB_CRED_JSON</code>.</li>
+<li>On Linux, at <code>~/.config/dart/pub-credentials.json</code></li>
+<li>On macOS, at <code>~/Library/Application Support/dart/pub-credentials.json</code></li>
+<li>On Windows, at <code>C:\Users\YourUsername\AppData\Roaming\dart\pub-credentials.json</code></li>
 </ul>
-</li>
-</ul>
+<p>And copy the contents of this <code>pub-credentials.json</code> file to a new GitHub repo secret named <code>PUB_CRED_JSON</code>.</p>
 <p>This workflow is set to execute whenever new version tags are pushed up to GitHub.</p>
 <pre><code class="language-yaml">name: Publish Release(s)
 
@@ -3535,6 +3705,23 @@ Rust Worker 2 -&gt;&gt; Dart: channel.postMessage
 </pre>
 <p>It is theoretically possible to have a one-to-one implementation of Isolate using only web primitives,
 <code>BroadcastChannel</code>s and <code>Worker</code>s, but it remains to be seen how practical such an approach would be.</p>
+<h2 id="optionallist"><a class="header" href="#optionallist">OptionalList</a></h2>
+<p>Per the implementation, most IRs are also accompanied by a List type (GeneralList, PrimitiveList, StringList etc.)
+each of which handles lists in different ways. When Optional was first implemented, it relied on GeneralList since the
+underlying assumption that Optional already boxed stack values should allow for seamless interaction. Howver, this became an issue
+later because other IRs would have to accommodate for Optionals instead of being perfectly encapsulated, leading to
+ugly hacks. <a href="https://github.com/fzyzcjy/flutter_rust_bridge/pull/1388">#1388</a> introduced OptionalList to bring
+Optional in line with other IRs, and is implemented as a list of maybe-null pointers. It does highlight several drawbacks
+to this approach to IRs where specializations shine compared to GeneralList.</p>
+<ol>
+<li>GeneralList requires a fully-allocated list and asks the Dart side to <em>fill</em> in the blanks via <code>api_fill</code> functions, but these
+are not implemented by any delegates since they all have their own special lists (StringList, TimeList, Uuids). This renders
+types like <code>List&lt;String?&gt;</code> difficult to implement without hacks.</li>
+<li>OptionalList's inner pointer is a <code>*mut *mut T</code>, which without significant refactoring would be difficult to represent with
+GeneralList, and whose typical usage doesn't really require double indirection often enough to justify it.</li>
+<li>OptionalList enables future optimizations, for example the case when <code>sizeof(T) &lt;= sizeof(usize)</code>, which would certainly be difficult
+to accomplish with GeneralList.</li>
+</ol>
 <h2 id="want-to-know-more-tell-me"><a class="header" href="#want-to-know-more-tell-me">Want to know more? Tell me</a></h2>
 <p>What do you want to know? Feel free to create an issue in GitHub, and I will tell more :)</p>
 <div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
@@ -3904,8 +4091,8 @@ await expectLater(() =&gt; api.panicUnwrapDartOpaque(opaque: () =&gt; 'Test_Stri
 cargo update -p flutter_rust_bridge
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="unit-tests-in-dart"><a class="header" href="#unit-tests-in-dart">Unit tests in dart</a></h1>
-<p>To run <code>flutter</code> or <code>dart test</code> with the bridge you need to load the library on your own development machine (Windows/MacOS/Linux/CI). For that use <code>loadDylib</code>, for example:</p>
-<pre><code class="language-dart">BridgeImpl initializeExternalLibrary(String path) =&gt; BridgeImpl(loadDylib(path));
+<p>To run <code>flutter</code> or <code>dart test</code> with the bridge you need to load the library on your own development machine (Windows/MacOS/Linux/CI). For that use <code>loadLibForFlutter</code> or <code>loadLibForDart</code>, for example:</p>
+<pre><code class="language-dart">BridgeImpl initializeExternalLibrary(String path) =&gt; BridgeImpl(loadLibForDart(path));
 </code></pre>
 <p>Note however, that you need to build the library for your IDE's Operating System. <code>cargo build</code> should normally handle that.</p>
 <p><strong>Do not change the target to your OS only</strong>, as otherwise you will not be able to build for your target platform anymore.</p>
@@ -3926,7 +4113,7 @@ import 'package:flutter_rust_bridge/flutter_rust_bridge.dart';
 
 BridgeImpl initializeExternalLibrary(String path) {
   return BridgeImpl(
-    loadDylib(path)
+    loadLibForFlutter(path)
   );
 }
 </code></pre>
@@ -3959,7 +4146,7 @@ Future&lt;void&gt; main() async {
 <p>Run it: <code>flutter_rust_bridge_codegen --rust-input frb_example/pure_dart/rust/src/api.rs --dart-output frb_example/pure_dart/dart/lib/bridge_generated.dart</code> (See <a href="https://github.com/fzyzcjy/flutter_rust_bridge/blob/master/.github/workflows/codegen.yml">CI workflow</a> as a reference.) (For Windows, you may need <code>\\</code> instead of <code>/</code> for paths.)</p>
 <h2 id="run-dartrust-app"><a class="header" href="#run-dartrust-app">Run &quot;Dart+Rust&quot; app</a></h2>
 <p>You may run <code>frb_example/pure_dart/dart/lib/main.dart</code> as a normal Dart program, except that you should provide the dynamic linked library of the Rust code (for simplicity, here I only demonstrate the approach for dynamic linked library, but you can for sure use other methods). The detailed steps are as follows.</p>
-<p>Run <code>cargo build</code> in <code>frb_example/pure_dart/rust</code> to build the Rust code into a <code>.so</code> file. Then run <code>dart frb_example/pure_dart/dart/lib/main.dart frb_example/pure_dart/rust/target/debug/libflutter_rust_bridge_example.so</code> to run the Dart program with Rust <code>.so</code> file. (If you have problems, see &quot;Troubleshooting&quot; section.)  (If on MacOS, Rust may indeed generate <code>.dylib</code>, so change the last command to use <code>...dylib</code> instead of <code>...so</code>,)</p>
+<p>Run <code>cargo build</code> in <code>frb_example/pure_dart/rust</code> to build the Rust code into a <code>.so</code> file. Then run <code>dart frb_example/pure_dart/dart/lib/main.dart frb_example/pure_dart/rust/target/debug/libflutter_rust_bridge_example_pure_dart.so</code> to run the Dart program with Rust <code>.so</code> file. (If you have problems, see &quot;Troubleshooting&quot; section.)  (If on MacOS, Rust may indeed generate <code>.dylib</code>, so change the last command to use <code>...dylib</code> instead of <code>...so</code>,)</p>
 <p>P.S. You will only see some tests passing - no fancy UI or functionality in this example.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="safety-concerns"><a class="header" href="#safety-concerns">Safety concerns</a></h1>
 <p>This library has CI that runs <a href="https://www.valgrind.org/">Valgrind</a> automatically on the setup that a Dart program calls a Rust program using this package, so memory problems should be found by Valgrind. <sub>(Notice that, even when running a simple hello-world Dart program, Valgrind will report hundreds of errors. See <a href="https://github.com/dart-lang/sdk/issues/47346">this Dart lang issue</a> for more details. Therefore, I both look at &quot;definitely lost&quot; in Valgrind, and manually search things related to this library - if all reported errors are unrelated to this library then we are safe.)</sub></p>
@@ -4002,6 +4189,64 @@ Future&lt;void&gt; main() async {
 <h2 id="why-doesnt-flutter_rust_bridge_serve-work-on-firefox"><a class="header" href="#why-doesnt-flutter_rust_bridge_serve-work-on-firefox">Why doesn't <code>flutter_rust_bridge_serve</code> work on Firefox?</a></h2>
 <p>This is a known issue stemming from Firefox's stricter rules regarding cross-origin requests. Use Chromium for testing, and check out
 <a href="https://web.dev/cross-origin-isolation-guide/">this guide on enabling <code>crossOriginIsolated</code></a> for your production servers.</p>
+<h2 id="android-context-was-not-initialized-or-ndk_context-initialization"><a class="header" href="#android-context-was-not-initialized-or-ndk_context-initialization">&quot;android context was not initialized&quot;, or <code>ndk_context</code> initialization.</a></h2>
+<p>Related issue: <a href="https://github.com/fzyzcjy/flutter_rust_bridge/issues/1323">#1323</a>.</p>
+<p>On android, when attempting to use crates that interact with the JavaVM through the JNI (like oboe-rs via cpal), you may get panics that typically have this message:</p>
+<pre><code>[ERROR:flutter/runtime/dart_vm_initializer.cc(41)] Unhandled Exception: FfiException(PANIC_ERROR, android context was not initialized, null)
+</code></pre>
+<p>This is due to a interesting quirk of Rust NDK interaction, where the <a href="https://github.com/rust-mobile/ndk-context"><code>ndk_context</code></a> crate does not have it's JVM and Android context initialized. Typically, in a normal application, the Android JVM would <code>System.loadLibrary()</code> the library through the Activity inside the JVM. It looks for symbols related to the JNI and executes them in accordance with the JNI standard. This would initialize the <code>ndk_context</code> normally via <code>JNI_OnLoad</code>. However, using the DartVM this step is skipped while loading the library, as the DartVM is not the JVM. So, the Android specific variables are not initialized, and therefore you cannot interact with the system via the Java interface.</p>
+<h3 id="mainactivitykt"><a class="header" href="#mainactivitykt">MainActivity.kt</a></h3>
+<p>Add these lines to your FlutterActivity subclass:</p>
+<pre><code class="language-kotlin">package com.example.frontend
+
+import io.flutter.embedding.android.FlutterActivity
+
+// https://github.com/dart-lang/sdk/issues/46027
+class MainActivity : FlutterActivity() {
+    // this `init` block, where &quot;foo&quot; is the name of your library
+    // ex: if it's libfoo.so, then use &quot;foo&quot;
+    init {
+        System.loadLibrary(&quot;foo&quot;)
+    }
+}
+</code></pre>
+<p>This handles loading the library before Dart does, and also executes the JNI related initialization.</p>
+<h3 id="rust"><a class="header" href="#rust">Rust</a></h3>
+<h4 id="cargotoml"><a class="header" href="#cargotoml">Cargo.toml</a></h4>
+<pre><code class="language-toml">[target.'cfg(target_os = &quot;android&quot;)'.dependencies]
+jni = &quot;0.21&quot;
+ndk-context = &quot;0.1&quot;
+</code></pre>
+<h4 id="librs"><a class="header" href="#librs">lib.rs</a></h4>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>#[cfg(target_os = &quot;android&quot;)]
+#[no_mangle]
+pub extern &quot;C&quot; fn JNI_OnLoad(vm: jni::JavaVM, res: *mut std::os::raw::c_void) -&gt; jni::sys::jint {
+    use std::ffi::c_void;
+
+    let vm = vm.get_java_vm_pointer() as *mut c_void;
+    unsafe {
+        ndk_context::initialize_android_context(vm, res);
+    }
+    jni::JNIVersion::V6.into()
+}
+<span class="boring">}</span></code></pre></pre>
+<p>This is the bit of JNI glue that allows for <code>ndk_context</code> to be initialized.</p>
+<h2 id="could-not-resolve-symbol-__cxa_pure_virtual-or-libc_shared-issues"><a class="header" href="#could-not-resolve-symbol-__cxa_pure_virtual-or-libc_shared-issues">&quot;Could not resolve symbol __cxa_pure_virtual&quot;, or libc++_shared issues.</a></h2>
+<p>At the time of writing this, linking with <code>libc++_static</code> or not linking at all may lead to symbol resolution errors when launching the flutter application, after loading your dynamic library. Adding a fix is quite easy, create a build.rs script in the root of your Rust code:</p>
+<h3 id="buildrs"><a class="header" href="#buildrs">build.rs</a></h3>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    #[cfg(target_os = &quot;android&quot;)]
+    println!(&quot;cargo:rustc-link-lib=c++_shared&quot;);
+}</code></pre></pre>
+<p>Then, in each <code>jniLibs</code> architecture directory, put the corresponding <code>libc++_shared.so</code> from the Android NDK. <code>libc++_shared.so</code> is typically located in <code>$ANDROID_NDK/toolchains/llvm/prebuilt/</code>. You will have to search for it, as it's different for each operating system.</p>
+<ul>
+<li>arm-linux-androideabi -&gt; armeabi-v7a</li>
+<li>aarch64-linux-android -&gt; arm64-v8a</li>
+<li>i686-linux-android -&gt; x86</li>
+<li>x86_64-linux-android -&gt; x86_64</li>
+</ul>
 <h2 id="issues-on-web"><a class="header" href="#issues-on-web">Issues on Web?</a></h2>
 <p>Check out <a href="./wasm_limitations.html">Limitations on WASM</a> for some common problems and solutions
 to adapt existing code to WASM.</p>
@@ -4067,6 +4312,14 @@ Options:
       --no-build-runner
           Skip running build_runner even when codegen-required code is detected
 
+      --no-use-bridge-in-method
+          No use bridge in Model
+
+      --extra-headers &lt;EXTRA_HEADERS&gt;
+          extra_headers is used to add dependencies header
+          
+          Note that when no_use_bridge_in_method=true and extra_headers is not set, the default is `import 'ffi.io.dart' if (dart.library.html) 'ffi.web.dart'`.
+
   -v, --verbose
           Show debug messages
 
@@ -4084,6 +4337,12 @@ Options:
           
           [possible values: config, ir]
 
+      --no-dart3
+          Disable language features introduced in Dart 3
+
+      --keep-going
+          If set, the program will delay error reporting until all codegen operations have completed
+
   -h, --help
           Print help (see a summary with '-h')
 
@@ -4092,7 +4351,7 @@ Options:
 </code></pre>
 <h2 id="flutter_rust_bridge_serve"><a class="header" href="#flutter_rust_bridge_serve"><code>flutter_rust_bridge_serve</code></a></h2>
 <pre><code class="language-shell">$ dart run flutter_rust_bridge_serve --help
-flutter_rust_bridge_serve 1.72.1
+flutter_rust_bridge_serve 1.82.4
 Develop Rust WASM modules with cross-origin isolation.
 
 USAGE:
